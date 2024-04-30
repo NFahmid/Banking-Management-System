@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Login extends javax.swing.JFrame{
-    JButton login, signUp, clear, exit, showPassword, forgotPassword;
+    JButton login, signUp, clear, showPassword, forgotPassword;
     JTextField accountNoTextField;
     JPasswordField pinNoTextField;
 
@@ -72,13 +72,6 @@ public class Login extends javax.swing.JFrame{
         clear.addActionListener(this::actionPerformed);
         add(clear);
 
-        exit = new JButton("EXIT");
-        exit.setBackground(Color.BLUE);
-        exit.setForeground(Color.WHITE);
-        exit.setBounds(200, 370, 200, 30);
-        exit.addActionListener(this::actionPerformed);
-        add(exit);
-
         showPassword = new JButton("Show Password");
         showPassword.setBackground(Color.BLUE);
         showPassword.setForeground(Color.WHITE);
@@ -103,17 +96,15 @@ public class Login extends javax.swing.JFrame{
     }
 
     public void actionPerformed(java.awt.event.ActionEvent ae) {
-        if ( ae.getSource() == login){
-
-        } else if ( ae.getSource() == signUp){
-            Signup signup = new Signup();
-            signup.setVisible(true);
-            setVisible(false);
+        if ( ae.getSource() == login){                                  /******************************************/
+                                                                        /*  ekhane file editor er kaj korte hobe  */
+        } else if ( ae.getSource() == signUp){                          /*                                        */
+            Signup signup = new Signup();                               /*                                        */
+            signup.setVisible(true);                                    /*                                        */
+            setVisible(false);                                          /******************************************/
         } else if ( ae.getSource() == clear){
             accountNoTextField.setText("");
             pinNoTextField.setText("");
-        } else if ( ae.getSource() == exit){
-            System.exit(0);
         } else if ( ae.getSource() == showPassword){
             pinNoTextField.setEchoChar((char) 0);
         } else if ( ae.getSource() == forgotPassword){
