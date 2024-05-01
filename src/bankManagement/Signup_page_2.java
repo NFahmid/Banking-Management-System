@@ -186,6 +186,9 @@ public class Signup_page_2 extends JFrame{
                         file.write("Existing Account: No\n");
                     }
                     file.close();
+
+                    new Signup_page_3();
+                    setVisible(false);
                 } catch (Exception e){
                     e.printStackTrace();
                 }

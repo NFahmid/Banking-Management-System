@@ -1,30 +1,23 @@
-
 Name: name
 Father's Name: father
 Mother's Name: mother
-Date of Birth: 1111
-Gender: null
+Date of Birth: 111
+Gender: male
 Email: mail
-Marital Status: null
-Address: gazipur
+Marital Status: Unmarried
+Address: adress
 City: city
-Zip Code: 1111
+Zip Code: 1234
 Religion: Muslim
-Account Type: Current
-Category of account: ST
-Income: 5000
-Pan number: 1232
-Occupation: Student
+Account Type: Savings
+Category of account: General
+Income: 1234
+Pan number: 1234
+Occupation: Salaried
 Education: Non-Graduate
 NID number: 1234
 Senior Citizen: No
 Existing Account: No
-Name: 11
-Father's Name: 11
-Mother's Name: 11
-Date of Birth: 11
-Gender: maleEmail: 11
-Marital Status: MarriedAddress: 11
-City: 111111
-Zip Code: 11
-Religion: Muslim
+Account Number: 180475
+Pin Number: 1234
+Services: 
