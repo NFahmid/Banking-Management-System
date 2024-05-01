@@ -2,6 +2,7 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileWriter;
 
 public class Login extends javax.swing.JFrame{
     JButton login, signUp, clear, showPassword, forgotPassword;
@@ -96,12 +97,17 @@ public class Login extends javax.swing.JFrame{
     }
 
     public void actionPerformed(java.awt.event.ActionEvent ae) {
-        if ( ae.getSource() == login){                                  /******************************************/
-                                                                        /*  ekhane file editor er kaj korte hobe  */
-        } else if ( ae.getSource() == signUp){                          /*                                        */
-            Signup signup = new Signup();                               /*                                        */
-            signup.setVisible(true);                                    /*                                        */
-            setVisible(false);                                          /******************************************/
+        if ( ae.getSource() == login){
+
+        } else if ( ae.getSource() == signUp){
+            try {
+                FileWriter fileWriter = new FileWriter("src/bankManagement/Signup.txt", true);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            Signup signup = new Signup();
+            signup.setVisible(true);
+            setVisible(false);
         } else if ( ae.getSource() == clear){
             accountNoTextField.setText("");
             pinNoTextField.setText("");
