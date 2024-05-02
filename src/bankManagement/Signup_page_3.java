@@ -160,6 +160,7 @@ public class Signup_page_3 extends JFrame{
                             bufferedWriter.write("E-Statement, ");
                         }
                         bufferedWriter.newLine();
+                        bufferedWriter.write("--------------------------------------------------");
                         bufferedWriter.close();
                         JOptionPane.showMessageDialog(null, "Account created successfully");
                         setVisible(false);

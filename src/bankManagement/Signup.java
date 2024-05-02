@@ -69,6 +69,12 @@ public class Signup extends JFrame {
         dobText.setBounds(300, 290, 200, 30);
         add(dobText);
 
+        JLabel dobFormat = new JLabel("Format: dd-mm-yyyy");
+        dobFormat.setFont(new Font("DialogInput", Font.BOLD, 15));
+        dobFormat.setForeground(Color.BLUE);
+        dobFormat.setBounds(300, 320, 200, 30);
+        add(dobFormat);
+
          gender = new JLabel("Gender: ");
         gender.setFont(new Font("DialogInput", Font.BOLD, 20));
         gender.setForeground(Color.BLUE);

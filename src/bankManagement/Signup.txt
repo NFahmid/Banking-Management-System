@@ -1,23 +1,50 @@
-Name: name
-Father's Name: father
-Mother's Name: mother
-Date of Birth: 111
+Name: arif
+Father's Name: habib
+Mother's Name: begum
+Date of Birth: 12-12-2002
 Gender: male
-Email: mail
+Email: arif@gmail.com
 Marital Status: Unmarried
-Address: adress
-City: city
+Address: gazipur
+City: gazipur
 Zip Code: 1234
 Religion: Muslim
 Account Type: Savings
-Category of account: General
-Income: 1234
+Category of account: ST
+Income: 5000
 Pan number: 1234
 Occupation: Salaried
 Education: Non-Graduate
 NID number: 1234
 Senior Citizen: No
 Existing Account: No
-Account Number: 180475
-Pin Number: 1234
-Services: 
+Account Number: 180457
+Pin Number: 0808
+Services: ATM Card, Internet Banking, 
+--------------------------------------------------Account Number: 124993
+Pin Number: 4545
+Services: Internet Banking, 
+--------------------------------------------------Name: Hasibul Karim
+Father's Name: MD Rezaul Karim
+Mother's Name: Hosne Ara Begum
+Date of Birth: 27-10-2004
+Gender: male
+Email: hasibulkarimsaad@gmail.com
+Marital Status: Married
+Address: 11/D
+City: Dhaka
+Zip Code: 1213
+Religion: Muslim
+Account Type: Savings
+Category of account: General
+Income: 1213
+Pan number: 123
+Occupation: Salaried
+Education: Non-Graduate
+NID number: 123424
+Senior Citizen: No
+Existing Account: No
+Account Number: 149881
+Pin Number: 1243
+Services: Internet Banking, 
+--------------------------------------------------

@@ -2,6 +2,7 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
@@ -99,7 +100,38 @@ public class Login extends javax.swing.JFrame{
 
     public void actionPerformed(java.awt.event.ActionEvent ae) {
         if ( ae.getSource() == login){
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader("src/bankManagement/Signup.txt"));
+                String line;
+                String enteredAccountNumber = accountNoTextField.getText();
+                String enteredPin = new String(pinNoTextField.getPassword());
+                String currentAccountNumber = null;
+                boolean loginSuccessful = false;
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(": ");
+                    if (parts.length >= 2) {
+                        String key = parts[0];
+                        String value = parts[1];
 
+                        if (key.equals("Account Number")) {
+                            currentAccountNumber = value;
+                        } else if (key.equals("Pin Number") && value.equals(enteredPin) && currentAccountNumber.equals(enteredAccountNumber)) {
+                            loginSuccessful = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (loginSuccessful) {
+                    JOptionPane.showMessageDialog(null, "Login successful");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid account number or pin");
+                }
+
+                reader.close();
+            }  catch (Exception e){
+                e.printStackTrace();
+            }
         } else if ( ae.getSource() == signUp){
             try {
                 FileWriter fileWriter = new FileWriter("src/bankManagement/Signup.txt", true);

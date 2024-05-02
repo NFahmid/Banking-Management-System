@@ -19,7 +19,7 @@ public class Signup_page_2 extends JFrame{
          form = new JLabel("Page 2: ACCOUNT DETAILS");
         form.setFont(new Font("Monospaced", Font.BOLD, 38));
         form.setForeground(Color.BLUE);
-        form.setBounds(230, 20, 600, 50);
+        form.setBounds(150, 20, 600, 50);
         add(form);
 
          accountType = new JLabel("ACCOUNT TYPE");
