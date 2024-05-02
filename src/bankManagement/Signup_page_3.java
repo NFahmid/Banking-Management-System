@@ -28,7 +28,7 @@ public class Signup_page_3 extends JFrame{
         add(congrats);
 
         Random random = new Random();
-         accountNumber = random.nextInt(100000, 199999);
+         accountNumber = random.nextInt(1111100000, 1111199999);
 
          l1 = new JLabel("ACCOUNT NUMBER: " + accountNumber);
         l1.setFont(new Font("Raleway", Font.BOLD, 20));

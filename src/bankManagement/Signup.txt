@@ -47,4 +47,50 @@ Existing Account: No
 Account Number: 149881
 Pin Number: 1243
 Services: Internet Banking, 
+--------------------------------------------------Name: AAAA
+Father's Name: BBBB
+Mother's Name: CCCC
+Date of Birth: 12-12-2024
+Gender: male
+Email: asasasa@gmail.com
+Marital Status: Unmarried
+Address: 23/12
+City: DDDs
+Zip Code: 12333
+Religion: Muslim
+Account Type: Savings
+Category of account: General
+Income: 12212
+Pan number: 22
+Occupation: Student
+Education: Non-Graduate
+NID number: 69222233
+Senior Citizen: No
+Existing Account: No
+Account Number: 133778
+Pin Number: 1223
+Services: ATM Card, Internet Banking, Mobile Banking, Email Alerts, Cheque Book, E-Statement, 
+--------------------------------------------------Name: test
+Father's Name: test
+Mother's Name: test
+Date of Birth: test
+Gender: female
+Email: test
+Marital Status: Unmarried
+Address: test
+City: test
+Zip Code: test
+Religion: Muslim
+Account Type: Savings
+Category of account: General
+Income: test
+Pan number: test
+Occupation: Salaried
+Education: Non-Graduate
+NID number: test
+Senior Citizen: No
+Existing Account: No
+Account Number: 1111146200
+Pin Number: 0000
+Services: 
 --------------------------------------------------
