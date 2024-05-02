@@ -1,0 +1,23 @@
+Name: name
+Father's Name: father
+Mother's Name: mother
+Date of Birth: 111
+Gender: male
+Email: mail
+Marital Status: Unmarried
+Address: adress
+City: city
+Zip Code: 1234
+Religion: Muslim
+Account Type: Savings
+Category of account: General
+Income: 1234
+Pan number: 1234
+Occupation: Salaried
+Education: Non-Graduate
+NID number: 1234
+Senior Citizen: No
+Existing Account: No
+Account Number: 180475
+Pin Number: 1234
+Services: 
