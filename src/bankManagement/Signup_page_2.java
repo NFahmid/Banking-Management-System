@@ -6,9 +6,9 @@ import java.io.FileWriter;
 import java.util.*;
 
 public class Signup_page_2 extends JFrame{
-    JLabel form, accountType, Category, Income, pan, Occupation, education, NID, seniorCitizen, existingAccount;
-    JTextField incomeText, panText, NIDText;
-    JComboBox accountTypeCombo, categoryCombo, occupationCombo, educationCombo;
+    JLabel form, accountType, contactNumber, Income, pan, Occupation, education, NID, seniorCitizen, existingAccount, contactNumberInfo;
+    JTextField incomeText, panText, NIDText, contactNumberText;
+    JComboBox accountTypeCombo, occupationCombo, educationCombo;
     JRadioButton yes, no, yes1, no1;
     ButtonGroup seniorCitizenGroup, existingAccountGroup;
 
@@ -32,15 +32,20 @@ public class Signup_page_2 extends JFrame{
         accountTypeCombo.setBounds(350, 140, 200, 30);
         add(accountTypeCombo);
 
-         Category = new JLabel("CATEGORY");
-        Category.setFont(new Font("DialogInput", Font.BOLD, 20));
-        Category.setForeground(Color.BLUE);
-        Category.setBounds(100, 190, 200, 30);
-        add(Category);
+         contactNumber = new JLabel("contactNumber: ");
+        contactNumber.setFont(new Font("DialogInput", Font.BOLD, 20));
+        contactNumber.setForeground(Color.BLUE);
+        contactNumber.setBounds(100, 190, 200, 30);
+        add(contactNumber);
 
-         categoryCombo = new JComboBox(new String[]{"General", "OBC", "SC", "ST", "Others"});
-        categoryCombo.setBounds(350, 190, 200, 30);
-        add(categoryCombo);
+         contactNumberInfo = new JLabel("Format: 01XXXXXXXXX");
+        contactNumberInfo.setFont(new Font("DialogInput", Font.BOLD, 15));
+        contactNumberInfo.setForeground(Color.RED);
+        contactNumberInfo.setBounds(350, 170, 200, 30);
+
+         contactNumberText = new JTextField();
+        contactNumberText.setBounds(350, 190, 200, 30);
+        add(contactNumberText);
 
          Income = new JLabel("INCOME");
         Income.setFont(new Font("DialogInput", Font.BOLD, 20));
@@ -161,15 +166,33 @@ public class Signup_page_2 extends JFrame{
     public void actionPerformed(java.awt.event.ActionEvent ae){
         if (ae.getActionCommand().equals("Next")){
             if(incomeText.getText().isEmpty() || panText.getText().isEmpty() || NIDText.getText().isEmpty() ||
-                    accountTypeCombo.getSelectedItem() == null || categoryCombo.getSelectedItem() == null ||
+                    accountTypeCombo.getSelectedItem() == null || contactNumberText.getText() == null ||
                     occupationCombo.getSelectedItem() == null || educationCombo.getSelectedItem() == null ||
                     seniorCitizenGroup.getSelection() == null || existingAccountGroup.getSelection() == null) {
                 JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
+            } if (contactNumberText.getText() != null && contactNumberText.getText().length() != 11){
+                JOptionPane.showMessageDialog(this, "Contact number format not correct.");
+            } if (NIDText.getText() != null && NIDText.getText().length() != 10){
+                JOptionPane.showMessageDialog(this, "NID number must be 10 characters long.");
+            } if (incomeText.getText() != null && !incomeText.getText().matches("[0-9]+")){
+                JOptionPane.showMessageDialog(this, "Income must be a number.");
+            } if (panText.getText() != null && !panText.getText().matches("[0-9]+")){
+                JOptionPane.showMessageDialog(this, "PAN number must be a number.");
+            } if (NIDText.getText() != null && !NIDText.getText().matches("[0-9]+")){
+                JOptionPane.showMessageDialog(this, "NID number must be a number.");
+            } if (contactNumberText.getText() != null && !contactNumberText.getText().matches("[0-9]+")){
+                JOptionPane.showMessageDialog(this, "Contact number must be a number.");
+            } if (yes.isSelected() && no.isSelected()){
+                JOptionPane.showMessageDialog(this, "Select only one option for Senior Citizen.");
+            } if (yes1.isSelected() && no1.isSelected()){
+                JOptionPane.showMessageDialog(this, "Select only one option for Existing Account.");
+            } if (yes.isSelected() && yes1.isSelected()) {
+                JOptionPane.showMessageDialog(this, "You cannot be a senior citizen and have an existing account at the same time.");
             } else {
                 try{
                     FileWriter file = new FileWriter("src/bankManagement/Signup.txt", true);
                     file.write("Account Type: " + accountTypeCombo.getSelectedItem() + "\n");
-                    file.write("Category of account: " + categoryCombo.getSelectedItem() + "\n");
+                    file.write("contactNumber of account: " + contactNumberText.getText() + "\n");
                     file.write("Income: " + incomeText.getText() + "\n");
                     file.write("Pan number: " + panText.getText() + "\n");
                     file.write("Occupation: " + occupationCombo.getSelectedItem() + "\n");

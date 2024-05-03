@@ -118,7 +118,7 @@ public class Signup_page_3 extends JFrame{
         add(back);
 
         setSize (800, 800);
-        setLocation(500, 90);
+        setLocation(350, 10);
         setVisible(true);
 
         getContentPane().setBackground(new java.awt.Color(204, 204, 255));
@@ -127,7 +127,11 @@ public class Signup_page_3 extends JFrame{
         public void actionPerformed(java.awt.event.ActionEvent ae){
             if (pinText.getText().isEmpty() || rePinText.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Fill all the required fields");
-            } else if (!pinText.getText().equals(rePinText.getText())){
+            }else if (!pinText.getText().matches("[0-9]+") || !rePinText.getText().matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null, "Pin number must be a number");
+            } else if ( pinText.getText().length() != 4 || rePinText.getText().length() != 4){
+                JOptionPane.showMessageDialog(null, "Pin number must be 4 digits long");
+            }  else if (!pinText.getText().equals(rePinText.getText())){
                 JOptionPane.showMessageDialog(null, "Entered pin numbers do not match");
             } else if (!checkBox7.isSelected()){
                 JOptionPane.showMessageDialog(null, "You need to agree to the terms and conditions to proceed");

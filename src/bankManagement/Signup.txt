@@ -47,7 +47,8 @@ Existing Account: No
 Account Number: 149881
 Pin Number: 1243
 Services: Internet Banking, 
---------------------------------------------------Name: AAAA
+--------------------------------------------------
+Name: AAAA
 Father's Name: BBBB
 Mother's Name: CCCC
 Date of Birth: 12-12-2024

@@ -200,7 +200,11 @@ public class Signup extends JFrame {
                     maritalStatusGroup.getSelection() == null || addressText.getText().isEmpty() || cityText.getText().isEmpty() ||
                     zipCodeText.getText().isEmpty() || religion.getSelectedItem() == null) {
                 JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
-            } else {
+            } if(dobText.getText().length() != 10){
+                JOptionPane.showMessageDialog(this, "Date of Birth must be in the format dd-mm-yyyy");
+            } else if (emailText.getText().matches( "^(.+)@(.+)$" ) == false){
+                JOptionPane.showMessageDialog(this, "Email not valid");
+            }else {
                 File file = new File("src/bankManagement/Signup.txt");
                 try {
                     FileWriter writer = new FileWriter(file, true);
