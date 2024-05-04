@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 
 public class Home_Page extends JFrame {
-    JButton deposit, withdraw, viewBalance, transferHistory, pinChange, transactionHistory, viewProfile, logout;
+    JButton deposit, withdraw, viewBalance, transfer, pinChange, transactionHistory, viewProfile, logout;
     String pinNumber, accountNumber;
     Home_Page(String accountNumber, String pinNumber){
         this.accountNumber = accountNumber;
@@ -58,13 +58,13 @@ public class Home_Page extends JFrame {
         viewBalance.addActionListener(this::performAction);
         backgroundLabel.add(viewBalance);
 
-        transferHistory = new JButton("TRANSFER HISTORY");
-        transferHistory.setBackground(Color.BLUE);
-        transferHistory.setForeground(Color.WHITE);
-        transferHistory.setFont(new Font("Raleway", Font.BOLD, 20));
-        transferHistory.setBounds(600, 250, 250, 50);
-        transferHistory.addActionListener(this::performAction);
-        backgroundLabel.add(transferHistory);
+        transfer = new JButton("TRANSFER HISTORY");
+        transfer.setBackground(Color.BLUE);
+        transfer.setForeground(Color.WHITE);
+        transfer.setFont(new Font("Raleway", Font.BOLD, 20));
+        transfer.setBounds(600, 250, 250, 50);
+        transfer.addActionListener(this::performAction);
+        backgroundLabel.add(transfer);
 
         pinChange = new JButton("CHANGE PIN");
         pinChange.setBackground(Color.BLUE);
@@ -124,12 +124,12 @@ public class Home_Page extends JFrame {
         } else if (ae.getSource() == withdraw) {
             new Withdraw(accountNumber, pinNumber).setVisible(true);
             dispose();
+        } else if (ae.getSource() == viewBalance){
+            new View_Balance(accountNumber, pinNumber).setVisible(true);
+            dispose();
         }
-//         else if (ae.getSource() == viewBalance){
-//            new View_Balance(accountNumber, pinNumber).setVisible(true);
-//            dispose();
-//        } else if (ae.getSource() == transferHistory){
-//            new Transfer_History(accountNumber, pinNumber).setVisible(true);
+//        else if (ae.getSource() == transfer){
+//            new Transfer(accountNumber, pinNumber).setVisible(true);
 //            dispose();
 //        } else if (ae.getSource() == transactionHistory){
 //            new Transaction_History(accountNumber, pinNumber).setVisible(true);
