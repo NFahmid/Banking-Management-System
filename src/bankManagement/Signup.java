@@ -74,97 +74,97 @@ public class Signup extends GUI_Interface {
         dobFormat.setBounds(300, 320, 200, 30);
         add(dobFormat);
 
-         gender = new JLabel("Gender: ");
+        gender = new JLabel("Gender: ");
         gender.setFont(new Font("DialogInput", Font.BOLD, 20));
         gender.setForeground(Color.BLUE);
         gender.setBounds(100, 340, 200, 30);
         add(gender);
 
-         male = new JRadioButton("Male");
+        male = new JRadioButton("Male");
         male.setFont(new Font("Raleway", Font.BOLD, 20));
         male.setBounds(300, 340, 100, 30);
         male.setBackground(new java.awt.Color(204, 204, 255));
         add(male);
 
-         female = new JRadioButton("Female");
+        female = new JRadioButton("Female");
         female.setFont(new Font("Raleway", Font.BOLD, 20));
         female.setBounds(400, 340, 100, 30);
         female.setBackground(new java.awt.Color(204, 204, 255));
         add(female);
 
-         genderGroup = new ButtonGroup();
+        genderGroup = new ButtonGroup();
         genderGroup.add(male);
         genderGroup.add(female);
 
-         email = new JLabel("EMAIL");
+        email = new JLabel("EMAIL");
         email.setFont(new Font("DialogInput", Font.BOLD, 20));
         email.setForeground(Color.BLUE);
         email.setBounds(100, 390, 200, 30);
         add(email);
 
-         emailText = new JTextField();
+        emailText = new JTextField();
         emailText.setBounds(300, 390, 200, 30);
         add(emailText);
 
-         maritalStatus = new JLabel("MARITAL STATUS");
+        maritalStatus = new JLabel("MARITAL STATUS");
         maritalStatus.setFont(new Font("DialogInput", Font.BOLD, 20));
         maritalStatus.setForeground(Color.BLUE);
         maritalStatus.setBounds(100, 440, 200, 30);
         add(maritalStatus);
 
-         married = new JRadioButton("Married");
+        married = new JRadioButton("Married");
         married.setFont(new Font("Raleway", Font.BOLD, 20));
         married.setBounds(300, 440, 100, 30);
         married.setBackground(new java.awt.Color(204, 204, 255));
         add(married);
 
-         unmarried = new JRadioButton("Unmarried");
+        unmarried = new JRadioButton("Unmarried");
         unmarried.setFont(new Font("Raleway", Font.BOLD, 20));
         unmarried.setBounds(400, 440, 200, 30);
         unmarried.setBackground(new java.awt.Color(204, 204, 255));
         add(unmarried);
 
-         maritalStatusGroup = new ButtonGroup();
+        maritalStatusGroup = new ButtonGroup();
         maritalStatusGroup.add(married);
         maritalStatusGroup.add(unmarried);
 
-         address = new JLabel("ADDRESS");
+        address = new JLabel("ADDRESS");
         address.setFont(new Font("DialogInput", Font.BOLD, 20));
         address.setForeground(Color.BLUE);
         address.setBounds(100, 490, 200, 30);
         add(address);
 
-         addressText = new JTextField();
+        addressText = new JTextField();
         addressText.setBounds(300, 490, 200, 30);
         add(addressText);
 
-         city = new JLabel("CITY");
+        city = new JLabel("CITY");
         city.setFont(new Font("DialogInput", Font.BOLD, 20));
         city.setForeground(Color.BLUE);
         city.setBounds(100, 540, 200, 30);
         add(city);
 
-         cityText = new JTextField();
+        cityText = new JTextField();
         cityText.setBounds(300, 540, 200, 30);
         add(cityText);
 
-         zipCode = new JLabel("ZIP CODE");
+        zipCode = new JLabel("ZIP CODE");
         zipCode.setFont(new Font("DialogInput", Font.BOLD, 20));
         zipCode.setForeground(Color.BLUE);
         zipCode.setBounds(100, 590, 200, 30);
         add(zipCode);
 
-         zipCodeText = new JTextField();
+        zipCodeText = new JTextField();
         zipCodeText.setBounds(300, 590, 200, 30);
         add(zipCodeText);
 
-         Religion = new JLabel("RELIGION");
+        Religion = new JLabel("RELIGION");
         Religion.setFont(new Font("DialogInput", Font.BOLD, 20));
         Religion.setForeground(Color.BLUE);
         Religion.setBounds(100, 640, 200, 30);
         add(Religion);
 
-         religion = new JComboBox(new String[]{"Muslim", "Hindu", "Christian", "Other"});
+        religion = new JComboBox(new String[]{"Muslim", "Hindu", "Christian", "Other"});
         religion.setBounds(300, 640, 200, 30);
         add(religion);
 

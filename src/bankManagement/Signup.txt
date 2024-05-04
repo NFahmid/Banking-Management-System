@@ -20,7 +20,7 @@ Existing Account: No
 Email: email@email.com
 Account Number: 1111137697
 Pin Number: 0080
-Balance: 5361.8
+Balance: 4361.8
 Services: 
 --------------------------------------------------
 Name: name 2

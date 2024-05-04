@@ -121,11 +121,11 @@ public class Home_Page extends JFrame {
         } else if (ae.getSource() == deposit){
             new Deposit(accountNumber, pinNumber).setVisible(true);
             dispose();
+        } else if (ae.getSource() == withdraw) {
+            new Withdraw(accountNumber, pinNumber).setVisible(true);
+            dispose();
         }
-//        else if (ae.getSource() == withdraw){
-//            new Withdraw(accountNumber, pinNumber).setVisible(true);
-//            dispose();
-//        } else if (ae.getSource() == viewBalance){
+//         else if (ae.getSource() == viewBalance){
 //            new View_Balance(accountNumber, pinNumber).setVisible(true);
 //            dispose();
 //        } else if (ae.getSource() == transferHistory){
