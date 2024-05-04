@@ -123,7 +123,9 @@ public class Login extends javax.swing.JFrame{
                 }
 
                 if (loginSuccessful) {
-                    JOptionPane.showMessageDialog(null, "Login successful");
+                    String pin = new String(pinNoTextField.getPassword());
+                    new Home_Page(pin).setVisible(true);
+                    setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid account number or pin");
                 }
