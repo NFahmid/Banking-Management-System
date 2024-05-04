@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame{
         exit.addActionListener(e -> System.exit(0));
         add(exit);
 
-        getContentPane().setBackground(Color.BLACK);
+        getContentPane().setBackground(new java.awt.Color(204, 204, 255));
 
         setSize (800, 400);
         setVisible(true);
@@ -157,7 +157,8 @@ public class Login extends javax.swing.JFrame{
         } else if ( ae.getSource() == showPassword){
             pinNoTextField.setEchoChar((char) 0);
         } else if ( ae.getSource() == forgotPassword){
-
+            new Forgot_Password().setVisible(true);
+            setVisible(false);
         }
     }
 

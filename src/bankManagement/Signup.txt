@@ -3,7 +3,6 @@ Father's Name: father name 1
 Mother's Name: mother name 1
 Date of Birth: 11-11-1111
 Gender: male
-Email: email@email.com
 Marital Status: Unmarried
 Address: adress 1
 City: city
@@ -18,6 +17,7 @@ Education: Non-Graduate
 NID number: 1234567891
 Senior Citizen: No
 Existing Account: No
+Email: email@email.com
 Account Number: 1111137697
 Pin Number: 0080
 Balance: 5238.5
