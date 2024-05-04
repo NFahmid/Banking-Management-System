@@ -1,97 +1,25 @@
-Name: arif
-Father's Name: habib
-Mother's Name: begum
-Date of Birth: 12-12-2002
+Name: name 1
+Father's Name: father name 1
+Mother's Name: mother name 1
+Date of Birth: 11-11-1111
 Gender: male
-Email: arif@gmail.com
+Email: email@email.com
 Marital Status: Unmarried
-Address: gazipur
-City: gazipur
-Zip Code: 1234
+Address: adress 1
+City: city
+Zip Code: 1232
 Religion: Muslim
 Account Type: Savings
-Category of account: ST
-Income: 5000
-Pan number: 1234
+contactNumber of account: 01111111111
+Income: 12211
+Pan number: 12334
 Occupation: Salaried
 Education: Non-Graduate
-NID number: 1234
+NID number: 1234567891
 Senior Citizen: No
 Existing Account: No
-Account Number: 180457
+Account Number: 1111137697
 Pin Number: 0080
-Services: ATM Card, Internet Banking, 
---------------------------------------------------Account Number: 124993
-Pin Number: 4545
-Services: Internet Banking, 
---------------------------------------------------Name: Hasibul Karim
-Father's Name: MD Rezaul Karim
-Mother's Name: Hosne Ara Begum
-Date of Birth: 27-10-2004
-Gender: male
-Email: hasibulkarimsaad@gmail.com
-Marital Status: Married
-Address: 11/D
-City: Dhaka
-Zip Code: 1213
-Religion: Muslim
-Account Type: Savings
-Category of account: General
-Income: 1213
-Pan number: 123
-Occupation: Salaried
-Education: Non-Graduate
-NID number: 123424
-Senior Citizen: No
-Existing Account: No
-Account Number: 149881
-Pin Number: 1243
-Services: Internet Banking, 
---------------------------------------------------
-Name: AAAA
-Father's Name: BBBB
-Mother's Name: CCCC
-Date of Birth: 12-12-2024
-Gender: male
-Email: asasasa@gmail.com
-Marital Status: Unmarried
-Address: 23/12
-City: DDDs
-Zip Code: 12333
-Religion: Muslim
-Account Type: Savings
-Category of account: General
-Income: 12212
-Pan number: 22
-Occupation: Student
-Education: Non-Graduate
-NID number: 69222233
-Senior Citizen: No
-Existing Account: No
-Account Number: 133778
-Pin Number: 1223
-Services: ATM Card, Internet Banking, Mobile Banking, Email Alerts, Cheque Book, E-Statement, 
---------------------------------------------------Name: test
-Father's Name: test
-Mother's Name: test
-Date of Birth: test
-Gender: female
-Email: test
-Marital Status: Unmarried
-Address: test
-City: test
-Zip Code: test
-Religion: Muslim
-Account Type: Savings
-Category of account: General
-Income: test
-Pan number: test
-Occupation: Salaried
-Education: Non-Graduate
-NID number: test
-Senior Citizen: No
-Existing Account: No
-Account Number: 1111146200
-Pin Number: 0000
+Balance: 2000
 Services: 
 --------------------------------------------------

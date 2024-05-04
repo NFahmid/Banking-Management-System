@@ -7,9 +7,11 @@ import java.util.*;
 
 public class Home_Page extends JFrame {
     JButton deposit, withdraw, viewBalance, transferHistory, pinChange, transactionHistory, viewProfile, logout;
-    String pinNumber;
-    Home_Page(String pinNumber){
+    String pinNumber, accountNumber;
+    Home_Page(String accountNumber, String pinNumber){
+        this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
+
         setLayout(null);
 
         ImageIcon backgroundImage = new ImageIcon("src/icons/transactions.jpg");
@@ -118,7 +120,26 @@ public class Home_Page extends JFrame {
             changePin(currentPin, newPin);
 
             JOptionPane.showMessageDialog(null, "Pin changed successfully");
+        } else if (ae.getSource() == deposit){
+            new Deposit(accountNumber, pinNumber).setVisible(true);
+            dispose();
         }
+//        else if (ae.getSource() == withdraw){
+//            new Withdraw(accountNumber, pinNumber).setVisible(true);
+//            dispose();
+//        } else if (ae.getSource() == viewBalance){
+//            new View_Balance(accountNumber, pinNumber).setVisible(true);
+//            dispose();
+//        } else if (ae.getSource() == transferHistory){
+//            new Transfer_History(accountNumber, pinNumber).setVisible(true);
+//            dispose();
+//        } else if (ae.getSource() == transactionHistory){
+//            new Transaction_History(accountNumber, pinNumber).setVisible(true);
+//            dispose();
+//        } else if (ae.getSource() == viewProfile){
+//            new View_Profile(accountNumber, pinNumber).setVisible(true);
+//            dispose();
+//        }
     }
 
     public void changePin(String currentPin, String newPin) {
@@ -146,6 +167,6 @@ public class Home_Page extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Home_Page("");
+        new Home_Page("", "");
     }
 }

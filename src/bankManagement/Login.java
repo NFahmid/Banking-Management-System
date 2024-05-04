@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class Login extends javax.swing.JFrame{
-    JButton login, signUp, clear, showPassword, forgotPassword;
+    JButton login, signUp, clear, showPassword, forgotPassword, exit;
     JTextField accountNoTextField;
     JPasswordField pinNoTextField;
 
@@ -71,7 +71,7 @@ public class Login extends javax.swing.JFrame{
         clear = new JButton("Clear");
         clear.setBackground(Color.BLUE);
         clear.setForeground(Color.WHITE);
-        clear.setBounds(300, 320, 150, 30);
+        clear.setBounds(250, 320, 100, 30);
         clear.addActionListener(this::actionPerformed);
         add(clear);
 
@@ -88,6 +88,13 @@ public class Login extends javax.swing.JFrame{
         forgotPassword.setBounds(460, 150, 150, 30);
         forgotPassword.addActionListener(this::actionPerformed);
         add(forgotPassword);
+
+        exit = new JButton("Exit");
+        exit.setBackground(Color.BLUE);
+        exit.setForeground(Color.WHITE);
+        exit.setBounds(400, 320, 100, 30);
+        exit.addActionListener(e -> System.exit(0));
+        add(exit);
 
         getContentPane().setBackground(Color.BLACK);
 
@@ -123,8 +130,9 @@ public class Login extends javax.swing.JFrame{
                 }
 
                 if (loginSuccessful) {
+                    String accountNumber = accountNoTextField.getText();
                     String pin = new String(pinNoTextField.getPassword());
-                    new Home_Page(pin).setVisible(true);
+                    new Home_Page(accountNumber, pin).setVisible(true);
                     setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid account number or pin");
