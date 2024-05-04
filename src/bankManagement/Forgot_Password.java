@@ -103,9 +103,7 @@ public class Forgot_Password extends JFrame{
                 String currentLine;
 
                 while((currentLine = reader.readLine()) != null) {
-                    // Check if the line contains the account number and email
                     if( currentLine.contains("Email: " + emailInput) && currentLine.contains("Account Number: " + accountNum)) {
-                        // Replace the old pin with the new pin
                         String oldPin = currentLine.substring(currentLine.indexOf("Pin Number: ") + 12, currentLine.indexOf("Pin Number: ") + 16);
                         currentLine = currentLine.replace("Pin Number: " + oldPin, "Pin Number: " + newPassword);
                     }
@@ -114,13 +112,11 @@ public class Forgot_Password extends JFrame{
                 writer.close();
                 reader.close();
 
-                // Delete the original file
                 if (!signupFile.delete()) {
                     JOptionPane.showMessageDialog(null, "Could not delete original file");
                     return;
                 }
 
-                // Rename the new file to the filename the original file had.
                 if (!tempFile.renameTo(signupFile)) {
                     JOptionPane.showMessageDialog(null, "Could not rename temporary file");
                 }

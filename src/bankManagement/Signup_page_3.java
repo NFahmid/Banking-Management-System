@@ -12,7 +12,8 @@ public class Signup_page_3 extends GUI_Interface{
     int accountNumber;
 
 
-    Signup_page_3(){
+    Signup_page_3(int accountNumber){
+        this.accountNumber = accountNumber;
 
         form = new JLabel("Page 3: ACCOUNT DETAILS");
         form.setFont(new Font("Raleway", Font.BOLD, 38));
@@ -26,8 +27,6 @@ public class Signup_page_3 extends GUI_Interface{
         congrats.setBounds(100, 80, 700, 50);
         add(congrats);
 
-        Random random = new Random();
-        accountNumber = random.nextInt(1111100000, 1111199999);
 
          l1 = new JLabel("ACCOUNT NUMBER: " + accountNumber);
         l1.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -78,36 +77,36 @@ public class Signup_page_3 extends GUI_Interface{
         add(question);
 
         checkBox1 = new JCheckBox("ATM CARD");
-        checkBox1.setBackground(Color.WHITE);
+        checkBox1.setBackground(new java.awt.Color(204, 204, 255));
         checkBox1.setBounds(100, 450, 200, 30);
         add(checkBox1);
 
         checkBox2 = new JCheckBox("Internet Banking");
-        checkBox2.setBackground(Color.WHITE);
+        checkBox2.setBackground(new java.awt.Color(204, 204, 255));
         checkBox2.setBounds(350, 450, 200, 30);
         add(checkBox2);
 
         checkBox3 = new JCheckBox("Mobile Banking");
-        checkBox3.setBackground(Color.WHITE);
+        checkBox3.setBackground(new java.awt.Color(204, 204, 255));
         checkBox3.setBounds(100, 500, 200, 30);
         add(checkBox3);
 
         checkBox4 = new JCheckBox("Email Alerts");
-        checkBox4.setBackground(Color.WHITE);
+        checkBox4.setBackground(new java.awt.Color(204, 204, 255));
         checkBox4.setBounds(350, 500, 200, 30);
         add(checkBox4);
 
         checkBox5 = new JCheckBox("Cheque Book");
-        checkBox5.setBackground(Color.WHITE);
+        checkBox5.setBackground(new java.awt.Color(204, 204, 255));
         checkBox5.setBounds(100, 550, 200, 30);
         add(checkBox5);
 
         checkBox6 = new JCheckBox("E-Statement");
-        checkBox6.setBackground(Color.WHITE);
+        checkBox6.setBackground(new java.awt.Color(204, 204, 255));
         checkBox6.setBounds(350, 550, 200, 30);
         add(checkBox6);
 
-        checkBox7 = new JCheckBox("I hereby declare that the above entered details correct to the best of my knowledge.");
+        checkBox7 = new JCheckBox("You need to agree to the Terms and Conditions to continue.");
         checkBox7.setBackground(new java.awt.Color(204, 204, 255));
         checkBox7.setBounds(100, 600, 600, 30);
         add(checkBox7);
@@ -125,6 +124,9 @@ public class Signup_page_3 extends GUI_Interface{
         back.setBounds(400, 650, 100, 30);
         back.addActionListener(this::performAction);
         add(back);
+
+        revalidate();
+        repaint();
 
     }
 
@@ -174,13 +176,14 @@ public class Signup_page_3 extends GUI_Interface{
                         bufferedWriter.newLine();
                         bufferedWriter.write("--------------------------------------------------");
                         bufferedWriter.newLine();
+                        bufferedWriter.write("\n");
                         bufferedWriter.close();
                         JOptionPane.showMessageDialog(null, "Account created successfully");
                         setVisible(false);
                         new Login();
                     } else if (ae.getActionCommand().equals("Back")) {
                         setVisible(false);
-                        new Signup_page_2();
+                        new Signup_page_2(accountNumber);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -189,6 +192,6 @@ public class Signup_page_3 extends GUI_Interface{
         }
 
     public static void main(String[] args) {
-        new Signup_page_3();
+        new Signup_page_3(0);
     }
 }

@@ -11,9 +11,11 @@ public class Signup_page_2 extends GUI_Interface{
     JComboBox accountTypeCombo, occupationCombo, educationCombo;
     JRadioButton yes, no, yes1, no1;
     ButtonGroup seniorCitizenGroup, existingAccountGroup;
+    int accountNumber;
 
 
-    Signup_page_2(){
+    Signup_page_2(int accountNumber){
+        this.accountNumber = accountNumber;
 
          form = new JLabel("Page 2: ACCOUNT DETAILS");
         form.setFont(new Font("Monospaced", Font.BOLD, 38));
@@ -155,11 +157,8 @@ public class Signup_page_2 extends GUI_Interface{
         add(back);
 
 
-        getContentPane().setBackground(new java.awt.Color(204, 204, 255));
-
-        setSize(800, 800);
-        setLocation(350, 10);
-        setVisible(true);
+        revalidate();
+        repaint();
     }
 
     public void performAction(java.awt.event.ActionEvent ae){
@@ -209,7 +208,7 @@ public class Signup_page_2 extends GUI_Interface{
                     }
                     file.close();
 
-                    new Signup_page_3();
+                    new Signup_page_3(accountNumber);
                     setVisible(false);
                 } catch (Exception e){
                     e.printStackTrace();
@@ -222,6 +221,6 @@ public class Signup_page_2 extends GUI_Interface{
     }
 
     public static void main(String[] args) {
-        new Signup_page_2();
+        new Signup_page_2(0);
     }
 }

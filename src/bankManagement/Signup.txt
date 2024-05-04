@@ -1,50 +1,109 @@
+Account Number: 1111174203
 Name: name 1
 Father's Name: father name 1
 Mother's Name: mother name 1
 Date of Birth: 11-11-1111
 Gender: male
-Marital Status: Unmarried
-Address: adress 1
-City: city
-Zip Code: 1232
+Email: email@email.com
+Marital Status: Married
+Address: adress1
+City: city1
+Zip Code: 1111
 Religion: Muslim
-Account Type: Savings
+Account Type: Fixed Deposit
 contactNumber of account: 01111111111
-Income: 12211
-Pan number: 12334
-Occupation: Salaried
+Income: 1234
+Pan number: 1234
+Occupation: Student
 Education: Non-Graduate
 NID number: 1234567891
 Senior Citizen: No
 Existing Account: No
-Email: email@email.com
-Account Number: 1111137697
+Account Number: 1111174203
 Pin Number: 0080
-Balance: 5361.799999999999
+Balance: 1000
 Services: 
 --------------------------------------------------
+
+Account Number: 1111152024
 Name: name 2
 Father's Name: father name 2
 Mother's Name: mother name 2
 Date of Birth: 22-22-2222
 Gender: male
-Email: email2@email2.com
-Marital Status: Unmarried
-Address: adress 2
-City: city 2
-Zip Code: 1242
+Email: email@email2.com
+Marital Status: Married
+Address: adress2
+City: city2
+Zip Code: 1234
 Religion: Muslim
 Account Type: Savings
 contactNumber of account: 02222222222
-Income: 1234
+Income: 2222
 Pan number: 1234
 Occupation: Salaried
 Education: Non-Graduate
-NID number: 1234567789
-Senior Citizen: No
+NID number: 1234567891
+Senior Citizen: Yes
 Existing Account: No
-Account Number: 1111123295
-Pin Number: 0090
-Balance: 5000
+Account Number: 1111152024
+Pin Number: 0010
+Balance: 1000
 Services: 
 --------------------------------------------------
+
+
+Account Number: 1111135232
+Name: name 3
+Father's Name: father name 3
+Mother's Name: mother name 3
+Date of Birth: 33-33-3333
+Gender: male
+Email: email@email3.com
+Marital Status: Married
+Address: adress 3
+City: city 3
+Zip Code: 3333
+Religion: Muslim
+Account Type: Savings
+contactNumber of account: 03333333333
+Income: 3333
+Pan number: 3333
+Occupation: Salaried
+Education: Non-Graduate
+NID number: 1234567891
+Senior Citizen: No
+Existing Account: No
+Account Number: 1111135232
+Pin Number: 0090
+Balance: 1999
+Services: 
+--------------------------------------------------
+
+Account Number: 1111170085
+Name: name 4
+Father's Name: father name 4
+Mother's Name: mother name 4
+Date of Birth: 44-44-4444
+Gender: male
+Email: email@email4.com
+Marital Status: Married
+Address: adress 4
+City: city 4
+Zip Code: 4444
+Religion: Muslim
+Account Type: Savings
+contactNumber of account: 04444444444
+Income: 44444
+Pan number: 4444
+Occupation: Salaried
+Education: Non-Graduate
+NID number: 1234876591
+Senior Citizen: No
+Existing Account: No
+Account Number: 1111170085
+Pin Number: 2132
+Balance: 2132
+Services: Internet Banking, 
+--------------------------------------------------
+

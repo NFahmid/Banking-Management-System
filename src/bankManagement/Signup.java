@@ -13,6 +13,7 @@ public class Signup extends GUI_Interface {
     JComboBox religion;
     ButtonGroup genderGroup, maritalStatusGroup;
     JRadioButton male, female, married, unmarried;
+    int accountNumber;
 
     Signup(){
 
@@ -182,6 +183,12 @@ public class Signup extends GUI_Interface {
         back.addActionListener(this::performAction);
         add(back);
 
+        Random random = new Random();
+        accountNumber = random.nextInt(1111100000, 1111199999);
+
+        revalidate();
+        repaint();
+
     }
 
     public void performAction(java.awt.event.ActionEvent ae){
@@ -199,6 +206,7 @@ public class Signup extends GUI_Interface {
                 File file = new File("src/bankManagement/Signup.txt");
                 try {
                     FileWriter writer = new FileWriter(file, true);
+                    writer.write("Account Number: " + accountNumber + "\n");
                     writer.write("Name: " + nameText.getText() + "\n");
                     writer.write("Father's Name: " + fatherNameText.getText() + "\n");
                     writer.write("Mother's Name: " + motherNameText.getText() + "\n");
@@ -220,7 +228,7 @@ public class Signup extends GUI_Interface {
                     writer.write("Religion: " + religion.getSelectedItem() + "\n");
                     writer.close();
 
-                    new Signup_page_2();
+                    new Signup_page_2(accountNumber);
                     setVisible(false);
                 } catch (Exception e) {
                     e.printStackTrace();

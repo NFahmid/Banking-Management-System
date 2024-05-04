@@ -134,10 +134,11 @@ public class Home_Page extends JFrame {
 //        } else if (ae.getSource() == transactionHistory){
 //            new Transaction_History(accountNumber, pinNumber).setVisible(true);
 //            dispose();
-//        } else if (ae.getSource() == viewProfile){
-//            new View_Profile(accountNumber, pinNumber).setVisible(true);
-//            dispose();
 //        }
+        else if (ae.getSource() == viewProfile){
+            new View_Profile(accountNumber, pinNumber).setVisible(true);
+            dispose();
+        }
     }
 
     public void changePin(String currentPin, String newPin) {
