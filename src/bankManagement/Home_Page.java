@@ -12,8 +12,6 @@ public class Home_Page extends JFrame {
         this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
 
-        setLayout(null);
-
         ImageIcon backgroundImage = new ImageIcon("src/icons/transactions.jpg");
         Image img = backgroundImage.getImage().getScaledInstance(1080, 720, Image.SCALE_DEFAULT);
         ImageIcon background = new ImageIcon(img);
@@ -41,7 +39,7 @@ public class Home_Page extends JFrame {
         deposit.setForeground(Color.WHITE);
         deposit.setFont(new Font("Raleway", Font.BOLD, 20));
         deposit.setBounds(200, 150, 250, 50);
-        deposit.addActionListener(this::actionPerformed);
+        deposit.addActionListener(this::performAction);
         backgroundLabel.add(deposit);
 
         withdraw = new JButton("WITHDRAW");
@@ -49,7 +47,7 @@ public class Home_Page extends JFrame {
         withdraw.setForeground(Color.WHITE);
         withdraw.setFont(new Font("Raleway", Font.BOLD, 20));
         withdraw.setBounds(600, 150, 250, 50);
-        withdraw.addActionListener(this::actionPerformed);
+        withdraw.addActionListener(this::performAction);
         backgroundLabel.add(withdraw);
 
         viewBalance = new JButton("VIEW BALANCE");
@@ -57,7 +55,7 @@ public class Home_Page extends JFrame {
         viewBalance.setForeground(Color.WHITE);
         viewBalance.setFont(new Font("Raleway", Font.BOLD, 20));
         viewBalance.setBounds(200, 250, 250, 50);
-        viewBalance.addActionListener(this::actionPerformed);
+        viewBalance.addActionListener(this::performAction);
         backgroundLabel.add(viewBalance);
 
         transferHistory = new JButton("TRANSFER HISTORY");
@@ -65,7 +63,7 @@ public class Home_Page extends JFrame {
         transferHistory.setForeground(Color.WHITE);
         transferHistory.setFont(new Font("Raleway", Font.BOLD, 20));
         transferHistory.setBounds(600, 250, 250, 50);
-        transferHistory.addActionListener(this::actionPerformed);
+        transferHistory.addActionListener(this::performAction);
         backgroundLabel.add(transferHistory);
 
         pinChange = new JButton("CHANGE PIN");
@@ -73,7 +71,7 @@ public class Home_Page extends JFrame {
         pinChange.setForeground(Color.WHITE);
         pinChange.setFont(new Font("Raleway", Font.BOLD, 20));
         pinChange.setBounds(200, 350, 250, 50);
-        pinChange.addActionListener(this::actionPerformed);
+        pinChange.addActionListener(this::performAction);
         backgroundLabel.add(pinChange);
 
         transactionHistory = new JButton("TRANSACTION HISTORY");
@@ -81,7 +79,7 @@ public class Home_Page extends JFrame {
         transactionHistory.setForeground(Color.WHITE);
         transactionHistory.setFont(new Font("Raleway", Font.BOLD, 20));
         transactionHistory.setBounds(600, 350, 250, 50);
-        transactionHistory.addActionListener(this::actionPerformed);
+        transactionHistory.addActionListener(this::performAction);
         backgroundLabel.add(transactionHistory);
 
         viewProfile = new JButton("VIEW PROFILE");
@@ -89,7 +87,7 @@ public class Home_Page extends JFrame {
         viewProfile.setForeground(Color.WHITE);
         viewProfile.setFont(new Font("Raleway", Font.BOLD, 20));
         viewProfile.setBounds(200, 450, 250, 50);
-        viewProfile.addActionListener(this::actionPerformed);
+        viewProfile.addActionListener(this::performAction);
         backgroundLabel.add(viewProfile);
 
         logout = new JButton("LOGOUT");
@@ -97,7 +95,7 @@ public class Home_Page extends JFrame {
         logout.setForeground(Color.WHITE);
         logout.setFont(new Font("Oswarld", Font.BOLD, 20));
         logout.setBounds(600, 450, 250, 50);
-        logout.addActionListener(this::actionPerformed);
+        logout.addActionListener(this::performAction);
         backgroundLabel.add(logout);
 
         setSize(1080, 720);
@@ -105,7 +103,7 @@ public class Home_Page extends JFrame {
         setVisible(true);
     }
 
-    public void actionPerformed(java.awt.event.ActionEvent ae){
+    public void performAction(java.awt.event.ActionEvent ae){
 
         if(ae.getSource() == logout){
             new Login().setVisible(true);

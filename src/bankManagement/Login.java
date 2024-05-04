@@ -6,14 +6,13 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class Login extends javax.swing.JFrame{
+public class Login extends GUI_Interface{
     JButton login, signUp, clear, showPassword, forgotPassword, exit;
     JTextField accountNoTextField;
     JPasswordField pinNoTextField;
 
     Login(){
         setTitle("AMAR BANK ATM");
-        setLayout(null);
 
         ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("icons/logo2.jpg"));
         Image image = icon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
@@ -58,35 +57,35 @@ public class Login extends javax.swing.JFrame{
         login.setBackground(Color.BLUE);
         login.setForeground(Color.WHITE);
         login.setBounds(250, 270, 100, 30);
-        login.addActionListener(this::actionPerformed);
+        login.addActionListener(this::performAction);
         add(login);
 
         signUp = new JButton("SIGN UP");
         signUp.setBackground(Color.BLUE);
         signUp.setForeground(Color.WHITE);
         signUp.setBounds(400, 270, 100, 30);
-        signUp.addActionListener(this::actionPerformed);
+        signUp.addActionListener(this::performAction);
         add(signUp);
 
         clear = new JButton("Clear");
         clear.setBackground(Color.BLUE);
         clear.setForeground(Color.WHITE);
         clear.setBounds(250, 320, 100, 30);
-        clear.addActionListener(this::actionPerformed);
+        clear.addActionListener(this::performAction);
         add(clear);
 
         showPassword = new JButton("Show Password");
         showPassword.setBackground(Color.BLUE);
         showPassword.setForeground(Color.WHITE);
         showPassword.setBounds(460, 200, 150, 30);
-        showPassword.addActionListener(this::actionPerformed);
+        showPassword.addActionListener(this::performAction);
         add(showPassword);
 
         forgotPassword = new JButton("Forgot Password");
         forgotPassword.setBackground(Color.BLUE);
         forgotPassword.setForeground(Color.WHITE);
         forgotPassword.setBounds(460, 150, 150, 30);
-        forgotPassword.addActionListener(this::actionPerformed);
+        forgotPassword.addActionListener(this::performAction);
         add(forgotPassword);
 
         exit = new JButton("Exit");
@@ -96,8 +95,6 @@ public class Login extends javax.swing.JFrame{
         exit.addActionListener(e -> System.exit(0));
         add(exit);
 
-        getContentPane().setBackground(new java.awt.Color(204, 204, 255));
-
         setSize (800, 400);
         setVisible(true);
         setLocation (350, 200);
@@ -105,7 +102,7 @@ public class Login extends javax.swing.JFrame{
 
     }
 
-    public void actionPerformed(java.awt.event.ActionEvent ae) {
+    public void performAction(java.awt.event.ActionEvent ae) {
         if ( ae.getSource() == login){
             try {
                 BufferedReader reader = new BufferedReader(new FileReader("src/bankManagement/Signup.txt"));

@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.*;
 
-public class Signup extends JFrame {
+public class Signup extends GUI_Interface {
 
     JLabel form, personalDetails, name, fatherName, motherName, dob, gender, email, maritalStatus, address, city, zipCode, Religion;
     JTextField nameText, fatherNameText, motherNameText, dobText, emailText, addressText, cityText, zipCodeText;
@@ -15,7 +15,6 @@ public class Signup extends JFrame {
     JRadioButton male, female, married, unmarried;
 
     Signup(){
-        setLayout(null);
 
          form = new JLabel("SIGN UP FORM");
         form.setFont(new Font("Monospaced", Font.BOLD, 38));
@@ -173,27 +172,19 @@ public class Signup extends JFrame {
         next.setBackground(Color.BLUE);
         next.setForeground(Color.WHITE);
         next.setBounds(500, 690, 100, 30);
-        next.addActionListener(this::actionPerformed);
+        next.addActionListener(this::performAction);
         add(next);
 
         JButton back = new JButton("Back");
         back.setBackground(Color.BLUE);
         back.setForeground(Color.WHITE);
         back.setBounds(300, 690, 100, 30);
-        back.addActionListener(this::actionPerformed);
+        back.addActionListener(this::performAction);
         add(back);
-
-
-        getContentPane().setBackground(new java.awt.Color(204, 204, 255));
-
-        setSize(800, 800);
-        setLocation(350, 10);
-        setVisible(true);
-
 
     }
 
-    public void actionPerformed(java.awt.event.ActionEvent ae){
+    public void performAction(java.awt.event.ActionEvent ae){
         if(ae.getActionCommand().equals("Next")){
             if(nameText.getText().isEmpty() || fatherNameText.getText().isEmpty() || motherNameText.getText().isEmpty() ||
                     dobText.getText().isEmpty() || genderGroup.getSelection() == null || emailText.getText().isEmpty() ||

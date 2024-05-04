@@ -5,7 +5,7 @@ import java.awt.*;
 import java.io.FileWriter;
 import java.util.*;
 
-public class Signup_page_2 extends JFrame{
+public class Signup_page_2 extends GUI_Interface{
     JLabel form, accountType, contactNumber, Income, pan, Occupation, education, NID, seniorCitizen, existingAccount, contactNumberInfo;
     JTextField incomeText, panText, NIDText, contactNumberText;
     JComboBox accountTypeCombo, occupationCombo, educationCombo;
@@ -14,7 +14,6 @@ public class Signup_page_2 extends JFrame{
 
 
     Signup_page_2(){
-        setLayout(null);
 
          form = new JLabel("Page 2: ACCOUNT DETAILS");
         form.setFont(new Font("Monospaced", Font.BOLD, 38));
@@ -28,7 +27,7 @@ public class Signup_page_2 extends JFrame{
         accountType.setBounds(100, 140, 200, 30);
         add(accountType);
 
-         accountTypeCombo = new JComboBox(new String[]{"Savings", "Current"});
+         accountTypeCombo = new JComboBox(new String[]{"Savings", "Current", "Fixed Deposit", "Recurring Deposit"});
         accountTypeCombo.setBounds(350, 140, 200, 30);
         add(accountTypeCombo);
 
@@ -145,14 +144,14 @@ public class Signup_page_2 extends JFrame{
         next.setBackground(Color.BLUE);
         next.setForeground(Color.WHITE);
         next.setBounds(550, 600, 100, 30);
-        next.addActionListener(this::actionPerformed);
+        next.addActionListener(this::performAction);
         add(next);
 
         JButton back = new JButton("Back");
         back.setBackground(Color.BLUE);
         back.setForeground(Color.WHITE);
         back.setBounds(400, 600, 100, 30);
-        back.addActionListener(this::actionPerformed);
+        back.addActionListener(this::performAction);
         add(back);
 
 
@@ -163,7 +162,7 @@ public class Signup_page_2 extends JFrame{
         setVisible(true);
     }
 
-    public void actionPerformed(java.awt.event.ActionEvent ae){
+    public void performAction(java.awt.event.ActionEvent ae){
         if (ae.getActionCommand().equals("Next")){
             if(incomeText.getText().isEmpty() || panText.getText().isEmpty() || NIDText.getText().isEmpty() ||
                     accountTypeCombo.getSelectedItem() == null || contactNumberText.getText() == null ||

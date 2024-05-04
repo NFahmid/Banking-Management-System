@@ -5,7 +5,7 @@ import java.awt.*;
 import java.io.*;
 import java.util.Random;
 
-public class Signup_page_3 extends JFrame{
+public class Signup_page_3 extends GUI_Interface{
     JLabel form, congrats, l1, l3, pin, rePin, question, balance;
     JTextField pinText, rePinText, balanceText;
     JCheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7;
@@ -13,7 +13,6 @@ public class Signup_page_3 extends JFrame{
 
 
     Signup_page_3(){
-        setLayout(null);
 
         form = new JLabel("Page 3: ACCOUNT DETAILS");
         form.setFont(new Font("Raleway", Font.BOLD, 38));
@@ -109,32 +108,27 @@ public class Signup_page_3 extends JFrame{
         add(checkBox6);
 
         checkBox7 = new JCheckBox("I hereby declare that the above entered details correct to the best of my knowledge.");
-        checkBox7.setBackground(Color.WHITE);
+        checkBox7.setBackground(new java.awt.Color(204, 204, 255));
         checkBox7.setBounds(100, 600, 600, 30);
         add(checkBox7);
 
         JButton submit = new JButton("Submit");
-        submit.setBackground(Color.BLUE);
-        submit.setForeground(Color.WHITE);
+        submit.setBackground(new java.awt.Color(204, 204, 255));
+        submit.setForeground(Color.BLACK);
         submit.setBounds(250, 650, 100, 30);
-        submit.addActionListener(this::actionPerformed);
+        submit.addActionListener(this::performAction);
         add(submit);
 
         JButton back = new JButton("Back");
-        back.setBackground(Color.BLUE);
-        back.setForeground(Color.WHITE);
+        back.setBackground(new java.awt.Color(204, 204, 255));
+        back.setForeground(Color.BLACK);
         back.setBounds(400, 650, 100, 30);
-        back.addActionListener(this::actionPerformed);
+        back.addActionListener(this::performAction);
         add(back);
 
-        setSize (800, 800);
-        setLocation(350, 10);
-        setVisible(true);
-
-        getContentPane().setBackground(new java.awt.Color(204, 204, 255));
     }
 
-        public void actionPerformed(java.awt.event.ActionEvent ae){
+        public void performAction(java.awt.event.ActionEvent ae){
             if (pinText.getText().isEmpty() || rePinText.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Fill all the required fields");
             }else if (!pinText.getText().matches("[0-9]+") || !rePinText.getText().matches("[0-9]+")) {
@@ -179,6 +173,7 @@ public class Signup_page_3 extends JFrame{
                         }
                         bufferedWriter.newLine();
                         bufferedWriter.write("--------------------------------------------------");
+                        bufferedWriter.newLine();
                         bufferedWriter.close();
                         JOptionPane.showMessageDialog(null, "Account created successfully");
                         setVisible(false);

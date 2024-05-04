@@ -20,6 +20,31 @@ Existing Account: No
 Email: email@email.com
 Account Number: 1111137697
 Pin Number: 0080
-Balance: 5238.5
+Balance: 5361.8
+Services: 
+--------------------------------------------------
+Name: name 2
+Father's Name: father name 2
+Mother's Name: mother name 2
+Date of Birth: 22-22-2222
+Gender: male
+Email: email2@email2.com
+Marital Status: Unmarried
+Address: adress 2
+City: city 2
+Zip Code: 1242
+Religion: Muslim
+Account Type: Savings
+contactNumber of account: 02222222222
+Income: 1234
+Pan number: 1234
+Occupation: Salaried
+Education: Non-Graduate
+NID number: 1234567789
+Senior Citizen: No
+Existing Account: No
+Account Number: 1111123295
+Pin Number: 0090
+Balance: 5000
 Services: 
 --------------------------------------------------
