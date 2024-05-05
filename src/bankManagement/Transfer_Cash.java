@@ -1,0 +1,111 @@
+package bankManagement;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Transfer_Cash extends GUI_Interface_2{
+    String accountNumberText, pinNumber;
+    JTextField transferaccountNumberText, amountText;
+    JButton transfer, back;
+
+
+    Transfer_Cash(String accountNumber, String pinNumber) {
+        this.accountNumberText = accountNumber;
+        this.pinNumber = pinNumber;
+
+        setLayout(null);
+
+        JLabel form = new JLabel("TRANSFER CASH");
+        form.setFont(new java.awt.Font("Monospaced", 1, 38));
+        form.setForeground(new java.awt.Color(0, 0, 255));
+        form.setBounds(375, 150, 400, 50);
+        add(form);
+
+        JLabel accountNumberLabel = new JLabel("Enter Account Number: ");
+        accountNumberLabel.setFont(new java.awt.Font("DialogInput", 1, 20));
+        accountNumberLabel.setForeground(new java.awt.Color(0, 0, 255));
+        accountNumberLabel.setBounds(400, 250, 300, 30);
+        add(accountNumberLabel);
+
+        transferaccountNumberText = new JTextField();
+        transferaccountNumberText.setBounds(350, 300, 350, 30);
+        add(transferaccountNumberText);
+
+        JLabel amountLabel = new JLabel("Enter Amount: ");
+        amountLabel.setFont(new java.awt.Font("DialogInput", 1, 20));
+        amountLabel.setForeground(new java.awt.Color(0, 0, 255));
+        amountLabel.setBounds(450, 350, 300, 30);
+        add(amountLabel);
+
+         amountText = new JTextField();
+        amountText.setBounds(350, 400, 350, 30);
+        add(amountText);
+
+         transfer = new JButton("Transfer");
+        transfer.setFont(new java.awt.Font("DialogInput", 1, 20));
+        transfer.setBounds(350, 450, 150, 30);
+        transfer.setBackground(Color.GREEN);
+        transfer.setForeground(Color.BLACK);
+        transfer.addActionListener(this::performAction);
+        add(transfer);
+
+         back = new JButton("Back");
+        back.setFont(new java.awt.Font("DialogInput", 1, 20));
+        back.setBounds(550, 450, 150, 30);
+        back.setBackground(new java.awt.Color(0, 0, 0));
+        back.setForeground(new java.awt.Color(255, 255, 255));
+        back.addActionListener(this::performAction);
+        add(back);
+
+        revalidate();
+        repaint();
+    }
+
+    public void performAction(java.awt.event.ActionEvent e) {
+        if (e.getSource() == transfer) {
+            String amount = amountText.getText();
+            String transferAccountNumber = transferaccountNumberText.getText();
+            if (amount.equals("") || transferAccountNumber.equals("")) {
+                JOptionPane.showMessageDialog(null, "Please enter the amount and account number");
+            } else {
+                String currentBalance = getCurrentBalance(accountNumberText, pinNumber);
+                if (currentBalance == null) {
+                    JOptionPane.showMessageDialog(null, "Could not retrieve current balance");
+                } else {
+                    try {
+                        Double currentBalanceInt = Double.parseDouble(currentBalance);
+                        Double amountInt = Double.parseDouble(amount);
+                        if (currentBalanceInt < amountInt) {
+                            JOptionPane.showMessageDialog(null, "Insufficient balance");
+                        } else {
+                            String newBalance = String.valueOf(currentBalanceInt - amountInt);
+                            updateBalance(accountNumberText, pinNumber, newBalance);
+
+                            String transferAccountBalance = getTransferCurrentBalance(transferAccountNumber);
+                            if (transferAccountBalance == null) {
+                                JOptionPane.showMessageDialog(null, "Could not retrieve transfer account balance");
+                            } else {
+                                Double transferAccountBalanceInt = Double.parseDouble(transferAccountBalance);
+                                String newTransferAccountBalance = String.valueOf(transferAccountBalanceInt + amountInt);
+                                transferBalance(transferAccountNumber, newTransferAccountBalance);
+
+                                JOptionPane.showMessageDialog(null, "Amount transferred successfully");
+                                this.setVisible(false);
+                                new Home_Page(accountNumberText, pinNumber).setVisible(true);
+                            }
+                        }
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(null, "Invalid amount");
+                    }
+                }
+            }
+        } else if (e.getSource() == back) {
+            this.setVisible(false);
+            new Home_Page(accountNumberText, pinNumber).setVisible(true);
+        }
+    }
+
+    public static void main(String[] args) {
+        new Transfer_Cash("", "").setVisible(true);
+    }
+}

@@ -58,7 +58,7 @@ public class Home_Page extends JFrame {
         viewBalance.addActionListener(this::performAction);
         backgroundLabel.add(viewBalance);
 
-        transfer = new JButton("TRANSFER HISTORY");
+        transfer = new JButton("TRANSFER");
         transfer.setBackground(Color.BLUE);
         transfer.setForeground(Color.WHITE);
         transfer.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -128,10 +128,11 @@ public class Home_Page extends JFrame {
             new View_Balance(accountNumber, pinNumber).setVisible(true);
             dispose();
         }
-//        else if (ae.getSource() == transfer){
-//            new Transfer(accountNumber, pinNumber).setVisible(true);
-//            dispose();
-//        } else if (ae.getSource() == transactionHistory){
+        else if (ae.getSource() == transfer){
+            new Transfer_Cash(accountNumber, pinNumber).setVisible(true);
+            dispose();
+        }
+//        else if (ae.getSource() == transactionHistory){
 //            new Transaction_History(accountNumber, pinNumber).setVisible(true);
 //            dispose();
 //        }

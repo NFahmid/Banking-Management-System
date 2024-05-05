@@ -21,7 +21,7 @@ Senior Citizen: No
 Existing Account: No
 Account Number: 1111174203
 Pin Number: 0080
-Balance: 1000
+Balance: 4500.0
 Services: 
 --------------------------------------------------
 
@@ -48,7 +48,7 @@ Senior Citizen: Yes
 Existing Account: No
 Account Number: 1111152024
 Pin Number: 0010
-Balance: 1000
+Balance: 1500.0
 Services: 
 --------------------------------------------------
 
