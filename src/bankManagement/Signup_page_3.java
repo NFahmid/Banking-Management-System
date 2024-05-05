@@ -178,6 +178,15 @@ public class Signup_page_3 extends GUI_Interface{
                         bufferedWriter.newLine();
                         bufferedWriter.write("\n");
                         bufferedWriter.close();
+
+                        String accountNumberString = String.valueOf(accountNumber);
+                        BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumberString + ".txt", true));
+                        bufferedWriter1.write("Account Number: Tk " + accountNumber);
+                        bufferedWriter1.newLine();
+                        bufferedWriter1.write("Initial amount deposited: Tk " + balanceText.getText());
+                        bufferedWriter1.newLine();
+                        bufferedWriter1.close();
+
                         JOptionPane.showMessageDialog(null, "Account created successfully");
                         setVisible(false);
                         new Login();

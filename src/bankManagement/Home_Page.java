@@ -127,16 +127,13 @@ public class Home_Page extends JFrame {
         } else if (ae.getSource() == viewBalance){
             new View_Balance(accountNumber, pinNumber).setVisible(true);
             dispose();
-        }
-        else if (ae.getSource() == transfer){
+        } else if (ae.getSource() == transfer){
             new Transfer_Cash(accountNumber, pinNumber).setVisible(true);
             dispose();
-        }
-//        else if (ae.getSource() == transactionHistory){
-//            new Transaction_History(accountNumber, pinNumber).setVisible(true);
-//            dispose();
-//        }
-        else if (ae.getSource() == viewProfile){
+        } else if (ae.getSource() == transactionHistory){
+            new Transaction_History(accountNumber, pinNumber).setVisible(true);
+            dispose();
+        } else if (ae.getSource() == viewProfile){
             new View_Profile(accountNumber, pinNumber).setVisible(true);
             dispose();
         }

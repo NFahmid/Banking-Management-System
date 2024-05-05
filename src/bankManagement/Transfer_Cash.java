@@ -2,6 +2,9 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Transfer_Cash extends GUI_Interface_2{
     String accountNumberText, pinNumber;
@@ -81,6 +84,12 @@ public class Transfer_Cash extends GUI_Interface_2{
                             String newBalance = String.valueOf(currentBalanceInt - amountInt);
                             updateBalance(accountNumberText, pinNumber, newBalance);
 
+                            String accountNumber = this.accountNumberText;
+                            BufferedWriter writer = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumber + ".txt", true));
+                            writer.write("Transferred: " + amount + " Tk to account number " + transferAccountNumber);
+                            writer.newLine();
+                            writer.close();
+
                             String transferAccountBalance = getTransferCurrentBalance(transferAccountNumber);
                             if (transferAccountBalance == null) {
                                 JOptionPane.showMessageDialog(null, "Could not retrieve transfer account balance");
@@ -89,6 +98,12 @@ public class Transfer_Cash extends GUI_Interface_2{
                                 String newTransferAccountBalance = String.valueOf(transferAccountBalanceInt + amountInt);
                                 transferBalance(transferAccountNumber, newTransferAccountBalance);
 
+                                String transferAccount = transferAccountNumber;
+                                BufferedWriter transferWriter = new BufferedWriter(new FileWriter("src/accountManager/" + transferAccount + ".txt", true));
+                                transferWriter.write("Received: " + amount + " Tk from account number " + accountNumber);
+                                transferWriter.newLine();
+                                transferWriter.close();
+
                                 JOptionPane.showMessageDialog(null, "Amount transferred successfully");
                                 this.setVisible(false);
                                 new Home_Page(accountNumberText, pinNumber).setVisible(true);
@@ -96,6 +111,8 @@ public class Transfer_Cash extends GUI_Interface_2{
                         }
                     } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(null, "Invalid amount");
+                    } catch (IOException ex){
+                        ex.printStackTrace();
                     }
                 }
             }

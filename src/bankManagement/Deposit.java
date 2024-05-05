@@ -2,6 +2,9 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Deposit extends GUI_Interface_2 {
     JLabel depositAmount;
@@ -60,11 +63,19 @@ public class Deposit extends GUI_Interface_2 {
                         String newBalance = String.valueOf(currentBalanceInt + amountInt);
                         updateBalance(accountNumber, pinNumber, newBalance);
 
+                        String accountNumber = this.accountNumber;
+                        BufferedWriter writer = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumber + ".txt", true));
+                        writer.write("Deposited: Tk " + amount);
+                        writer.newLine();
+                        writer.close();
+
                         JOptionPane.showMessageDialog(null, "Amount deposited successfully");
                         this.setVisible(false);
                         new Home_Page(accountNumber, pinNumber).setVisible(true);
                     } catch (NumberFormatException e) {
                         JOptionPane.showMessageDialog(null, "Invalid number format");
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
             }

@@ -1,0 +1,5 @@
+Account Number: 1111171025
+Initial amount deposited: 2000
+Deposited: 600
+Withdrawn: 46
+Transferred: 265 to account number 1111140386
