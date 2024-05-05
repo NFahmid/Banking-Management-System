@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class Login extends GUI_Interface{
-    JButton login, signUp, clear, showPassword, forgotPassword, exit;
+    JButton login, signUp, clear, showPassword, forgotPassword, exit, adminLogin;
     JTextField accountNoTextField;
     JPasswordField pinNoTextField;
 
@@ -95,6 +95,13 @@ public class Login extends GUI_Interface{
         exit.addActionListener(e -> System.exit(0));
         add(exit);
 
+        adminLogin = new JButton("Admin Login");
+        adminLogin.setBackground(Color.BLUE);
+        adminLogin.setForeground(Color.WHITE);
+        adminLogin.setBounds(600, 320, 150, 30);
+        adminLogin.addActionListener(this::performAction);
+        add(adminLogin);
+
         setSize (800, 400);
         setVisible(true);
         setLocation (350, 200);
@@ -156,6 +163,13 @@ public class Login extends GUI_Interface{
         } else if ( ae.getSource() == forgotPassword){
             new Forgot_Password().setVisible(true);
             setVisible(false);
+        } else if ( ae.getSource() == adminLogin){
+            if ( accountNoTextField.getText().equals("0000011111") && new String(pinNoTextField.getPassword()).equals("2580")){
+                new Admin_Login().setVisible(true);
+                setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid admin credentials");
+            }
         }
     }
 

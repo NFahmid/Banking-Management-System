@@ -20,8 +20,35 @@ NID number: 8752159327
 Senior Citizen: No
 Existing Account: No
 Account Number: 1111171025
-Pin Number: 0080
+Pin Number: 1121
 Balance: 2289.0
 Services: ATM Card, Mobile Banking, 
+--------------------------------------------------
+
+Account Number: 1111171025
+Name: Abid
+Father's Name: Hasan
+Mother's Name: Begum
+Date of Birth: 21-12-2001
+Gender: male
+Email: abid@email.com
+Marital Status: Unmarried
+Address: Dhaka
+City: Dhaka
+Zip Code: 1202
+Religion: Muslim
+Account Type: Current
+contactNumber of account: 0124512561
+Income: 5000
+Pan number: 1990
+Occupation: Student
+Education: Non-Graduate
+NID number: 8752159327
+Senior Citizen: No
+Existing Account: No
+Account Number: 1111171025
+Pin Number: 1121
+Balance: 2289.0
+Services: ATM Card, Mobile Banking,
 --------------------------------------------------
 

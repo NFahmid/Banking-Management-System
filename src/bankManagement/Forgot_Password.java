@@ -70,9 +70,12 @@ public class Forgot_Password extends JFrame{
         back.setBackground(Color.BLUE);
         back.setForeground(Color.WHITE);
         back.setFont(new Font("Raleway", Font.BOLD, 20));
-        back.setBounds(300, 300, 150, 30);
+        back.setBounds(500, 300, 150, 30);
         back.addActionListener(this::actionPerformed);
         add(back);
+
+        revalidate();
+        repaint();
 
         getContentPane().setBackground(new java.awt.Color(204, 204, 255));
 
@@ -83,53 +86,60 @@ public class Forgot_Password extends JFrame{
 
     public void actionPerformed(java.awt.event.ActionEvent e) {
         if (e.getSource() == submit) {
-            String accountNum = accountNumberText.getText();
-            String emailInput = emailText.getText();
+            String accountNumber = accountNumberText.getText();
+            String email = emailText.getText();
             String newPassword = newPasswordText.getText();
             String confirmPassword = confirmPasswordText.getText();
 
-            if (!newPassword.equals(confirmPassword)) {
-                JOptionPane.showMessageDialog(null, "New password and confirm password do not match");
-                return;
-            }
-
-            File signupFile = new File("src/bankManagement/Signup.txt");
-            File tempFile = new File("src/bankManagement/Temp.txt");
-
             try {
-                BufferedReader reader = new BufferedReader(new FileReader(signupFile));
-                BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+                if (accountNumber.equals("") || email.equals("") || newPassword.equals("") || confirmPassword.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Fill all the required fields");
+                } else {
+                    if (newPassword.equals(confirmPassword)) {
+                        File inputFile = new File("src/bankManagement/Signup.txt");
+                        File tempFile = new File("src/bankManagement/temp.txt");
 
-                String currentLine;
+                        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+                        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-                while((currentLine = reader.readLine()) != null) {
-                    if( currentLine.contains("Email: " + emailInput) && currentLine.contains("Account Number: " + accountNum)) {
-                        String oldPin = currentLine.substring(currentLine.indexOf("Pin Number: ") + 12, currentLine.indexOf("Pin Number: ") + 16);
-                        currentLine = currentLine.replace("Pin Number: " + oldPin, "Pin Number: " + newPassword);
+                        String line;
+                        String currentAccountNumber = null;
+                        String currentEmail = null;
+                        while ((line = reader.readLine()) != null) {
+                            String[] data = line.split(": ");
+                            if (data[0].equals("Account Number")) {
+                                currentAccountNumber = data[1];
+                            } else if (data[0].equals("Email")) {
+                                currentEmail = data[1];
+                            } else if (data[0].equals("Pin Number") && currentAccountNumber.equals(accountNumber) && currentEmail.equals(email)) {
+                                line = "Pin Number: " + newPassword;
+                                JOptionPane.showMessageDialog(null, "Password changed successfully");
+                                new Login().setVisible(true);
+                                setVisible(false);
+                            }
+                            writer.write(line + System.lineSeparator());
+                        }
+                        reader.close();
+                        writer.close();
+
+                        if (!inputFile.delete()) {
+                            JOptionPane.showMessageDialog(null, "Could not delete original file");
+                            return;
+                        }
+
+                        if (!tempFile.renameTo(inputFile)) {
+                            JOptionPane.showMessageDialog(null, "Could not rename temporary file");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Password does not match");
                     }
-                    writer.write(currentLine + System.getProperty("line.separator"));
                 }
-                writer.close();
-                reader.close();
-
-                if (!signupFile.delete()) {
-                    JOptionPane.showMessageDialog(null, "Could not delete original file");
-                    return;
-                }
-
-                if (!tempFile.renameTo(signupFile)) {
-                    JOptionPane.showMessageDialog(null, "Could not rename temporary file");
-                }
-
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
-
-            JOptionPane.showMessageDialog(null, "Pin changed successfully");
-
         } else if (e.getSource() == back) {
-            new Login();
-            dispose();
+            new Login().setVisible(true);
+            setVisible(false);
         }
     }
 
