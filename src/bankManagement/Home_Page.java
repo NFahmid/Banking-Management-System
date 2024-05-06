@@ -164,12 +164,20 @@ public class Home_Page extends JFrame {
 
             while((currentLine = reader.readLine()) != null) {
                 if(currentLine.contains("Pin Number: " + currentPin)) {
-                    currentLine = currentLine.replace("Pin Number: " + currentPin, "Pin Number: " + newPin);
+                    currentLine = "Pin Number: " + newPin;
                 }
                 writer.write(currentLine + System.getProperty("line.separator"));
             }
             writer.close();
             reader.close();
+
+            if (!signupFile.delete()) {
+                System.out.println("Could not delete file");
+                return;
+            }
+
+            if (!tempFile.renameTo(signupFile))
+                System.out.println("Could not rename file");
 
         } catch (IOException e) {
             e.printStackTrace();

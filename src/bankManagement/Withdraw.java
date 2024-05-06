@@ -48,11 +48,21 @@ JLabel withdrawAmount;
     }
     public void performAction(java.awt.event.ActionEvent ae){
         if (ae.getSource() == withdraw){
+            String currentBalance = getCurrentBalance(accountNumber, pinNumber);
             String amount = withdrawAmountText.getText();
+
+            Double amount1 = Double.parseDouble(withdrawAmountText.getText());
+            Double currentBalance1 = Double.parseDouble(getCurrentBalance(accountNumber, pinNumber));
+
             if (amount.equals("")){
                 JOptionPane.showMessageDialog(null, "Please enter the amount you want to deposit");
+            } else if ( amount1 > currentBalance1){
+                JOptionPane.showMessageDialog(null, "Insufficient balance");
+            } else if (amount1 < 0){
+                JOptionPane.showMessageDialog(null, "Invalid amount");
+            } else if (amount.equals("0")){
+                JOptionPane.showMessageDialog(null, "Amount cannot be 0");
             } else {
-                String currentBalance = getCurrentBalance(accountNumber, pinNumber);
                 if (currentBalance == null) {
                     JOptionPane.showMessageDialog(null, "Could not retrieve current balance");
                 } else {

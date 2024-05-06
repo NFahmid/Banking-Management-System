@@ -25,7 +25,38 @@ Nominee Address: nominee address 1
 Nominee Contact: 01212121212
 Nominee NID: nominee nid
 Account Number: 1111142511
-Pin Number: 0202
+Pin Number: 0010
+Balance: 877.0
+Services: Internet Banking, Email Alerts,
+--------------------------------------------------
+
+Account Number: 1111142512
+Name: name 2
+Father's Name: father name 2
+Mother's Name: mother name 2
+Date of Birth: 11-11-1112
+Gender: male
+Email: email@EMAIL.COM
+Marital Status: Married
+Address: address 2
+City: city 2
+Zip Code: 1211
+Religion: Muslim
+Account Type: Savings
+contactNumber of account: 0111111111
+Income: 1112
+Occupation: Student
+Education: Primary
+NID number: 1234567890
+Existing Account: No
+Nominee Name: nominee name 1
+Nominee Relation: nominee relation 1
+Nominee Age: nominee age 1
+Nominee Address: nominee address 1
+Nominee Contact: 01212121212
+Nominee NID: nominee nid
+Account Number: 1111142512
+Pin Number: 0201
 Balance: 2000
 Services: Internet Banking, Email Alerts,
 --------------------------------------------------
