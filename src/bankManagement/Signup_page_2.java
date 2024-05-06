@@ -184,7 +184,7 @@ public class Signup_page_2 extends GUI_Interface{
 
     public void performAction(java.awt.event.ActionEvent ae){
         if (ae.getActionCommand().equals("Next")){
-            if(incomeText.getText().isEmpty() || panText.getText().isEmpty() || NIDText.getText().isEmpty() ||
+            if(incomeText.getText().isEmpty() || NIDText.getText().isEmpty() ||
                     accountTypeCombo.getSelectedItem() == null || contactNumberText.getText() == null ||
                     occupationCombo.getSelectedItem() == null || educationCombo.getSelectedItem() == null
                     || existingAccountGroup.getSelection() == null) {

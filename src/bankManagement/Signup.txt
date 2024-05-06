@@ -1,54 +1,32 @@
-Account Number: 1111171025
-Name: Abid
-Father's Name: Hasan
-Mother's Name: Begum
-Date of Birth: 21-12-2001
-Gender: male
-Email: abid@email.com
-Marital Status: Unmarried
-Address: Dhaka
-City: Dhaka
-Zip Code: 1202
-Religion: Muslim
-Account Type: Current
-contactNumber of account: 0124512561
-Income: 5000
-Pan number: 1990
-Occupation: Student
-Education: Non-Graduate
-NID number: 8752159327
-Senior Citizen: No
-Existing Account: No
-Account Number: 1111171025
-Pin Number: 1121
-Balance: 2289.0
-Services: ATM Card, Mobile Banking, 
---------------------------------------------------
 
-Account Number: 1111171025
-Name: Abid
-Father's Name: Hasan
-Mother's Name: Begum
-Date of Birth: 21-12-2001
+Account Number: 1111142511
+Name: name 2
+Father's Name: father name 2
+Mother's Name: mother name 2
+Date of Birth: 11-11-1112
 Gender: male
-Email: abid@email.com
-Marital Status: Unmarried
-Address: Dhaka
-City: Dhaka
-Zip Code: 1202
+Email: email@EMAIL.COM
+Marital Status: Married
+Address: address 2
+City: city 2
+Zip Code: 1211
 Religion: Muslim
-Account Type: Current
-contactNumber of account: 0124512561
-Income: 5000
-Pan number: 1990
+Account Type: Savings
+contactNumber of account: 0111111111
+Income: 1112
 Occupation: Student
-Education: Non-Graduate
-NID number: 8752159327
-Senior Citizen: No
+Education: Primary
+NID number: 1234567890
 Existing Account: No
-Account Number: 1111171025
-Pin Number: 1121
-Balance: 2289.0
-Services: ATM Card, Mobile Banking,
+Nominee Name: nominee name 1
+Nominee Relation: nominee relation 1
+Nominee Age: nominee age 1
+Nominee Address: nominee address 1
+Nominee Contact: 01212121212
+Nominee NID: nominee nid
+Account Number: 1111142511
+Pin Number: 0202
+Balance: 2000
+Services: Internet Banking, Email Alerts,
 --------------------------------------------------
 

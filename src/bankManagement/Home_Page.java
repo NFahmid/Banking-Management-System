@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 
 public class Home_Page extends JFrame {
-    JButton deposit, withdraw, viewBalance, transfer, pinChange, transactionHistory, viewProfile, logout;
+    JButton deposit, withdraw, viewBalance, transfer, pinChange, transactionHistory, viewProfile, logout, deleteAccount;
     String pinNumber, accountNumber;
     Home_Page(String accountNumber, String pinNumber){
         this.accountNumber = accountNumber;
@@ -98,6 +98,14 @@ public class Home_Page extends JFrame {
         logout.addActionListener(this::performAction);
         backgroundLabel.add(logout);
 
+        deleteAccount = new JButton("DELETE ACCOUNT");
+        deleteAccount.setBackground(Color.BLUE);
+        deleteAccount.setForeground(Color.WHITE);
+        deleteAccount.setFont(new Font("Oswarld", Font.BOLD, 20));
+        deleteAccount.setBounds(400, 550, 250, 50);
+        deleteAccount.addActionListener(this::performAction);
+        backgroundLabel.add(deleteAccount);
+
         setSize(1080, 720);
         setLocation(220, 40);
         setVisible(true);
@@ -135,6 +143,11 @@ public class Home_Page extends JFrame {
             dispose();
         } else if (ae.getSource() == viewProfile){
             new View_Profile(accountNumber, pinNumber).setVisible(true);
+            dispose();
+        } else if (ae.getSource() == deleteAccount){
+            JOptionPane.showConfirmDialog(null, "Are you sure you want to delete your account?");
+            new Delete_Account(accountNumber);
+            new Login().setVisible(true);
             dispose();
         }
     }
