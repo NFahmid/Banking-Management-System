@@ -189,17 +189,17 @@ public class Signup_page_2 extends GUI_Interface{
                     occupationCombo.getSelectedItem() == null || educationCombo.getSelectedItem() == null
                     || existingAccountGroup.getSelection() == null) {
                 JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
-            } if (contactNumberText.getText() != null && contactNumberText.getText().length() != 11){
+            } else if (contactNumberText.getText() != null && contactNumberText.getText().length() != 11){
                 JOptionPane.showMessageDialog(this, "Contact number format not correct.");
-            } if (NIDText.getText() != null && NIDText.getText().length() != 10){
+            } else if (NIDText.getText() != null && NIDText.getText().length() != 10){
                 JOptionPane.showMessageDialog(this, "NID number must be 10 characters long.");
-            } if (incomeText.getText() != null && !incomeText.getText().matches("[0-9]+")){
+            } else if (incomeText.getText() != null && !incomeText.getText().matches("[0-9]+")){
                 JOptionPane.showMessageDialog(this, "Income must be a number.");
-            } if (NIDText.getText() != null && !NIDText.getText().matches("[0-9]+")){
+            } else if (NIDText.getText() != null && !NIDText.getText().matches("[0-9]+")){
                 JOptionPane.showMessageDialog(this, "NID number must be a number.");
-            } if (contactNumberText.getText() != null && !contactNumberText.getText().matches("[0-9]+")){
+            } else if (contactNumberText.getText() != null && !contactNumberText.getText().matches("[0-9]+")){
                 JOptionPane.showMessageDialog(this, "Contact number must be a number.");
-            }  if (yes1.isSelected() && no1.isSelected()){
+            }  else if (yes1.isSelected() && no1.isSelected()){
                 JOptionPane.showMessageDialog(this, "Select only one option for Existing Account.");
             } else {
                 try{

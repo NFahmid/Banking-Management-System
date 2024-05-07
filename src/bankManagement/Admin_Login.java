@@ -18,6 +18,7 @@ public class Admin_Login extends JFrame {
         setSize(1080, 720);
         setLocation(220, 40);
         setVisible(true);
+        
 
         viewListButton = new JButton("VIEW LIST OF ACCOUNTS");
         viewListButton.setBackground(Color.BLUE);
@@ -38,6 +39,8 @@ public class Admin_Login extends JFrame {
         JScrollPane scrollPane = new JScrollPane(view);
         scrollPane.setBounds(500, 10, 500, 500);
         add(scrollPane);
+
+
 
 
     }

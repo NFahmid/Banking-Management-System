@@ -72,7 +72,7 @@ public class Signup extends GUI_Interface {
         JLabel dobFormat = new JLabel("Format: dd-mm-yyyy");
         dobFormat.setFont(new Font("DialogInput", Font.BOLD, 15));
         dobFormat.setForeground(Color.BLUE);
-        dobFormat.setBounds(300, 320, 200, 30);
+        dobFormat.setBounds(320, 320, 200, 20);
         add(dobFormat);
 
         gender = new JLabel("Gender: ");
@@ -198,7 +198,7 @@ public class Signup extends GUI_Interface {
                     maritalStatusGroup.getSelection() == null || addressText.getText().isEmpty() || cityText.getText().isEmpty() ||
                     zipCodeText.getText().isEmpty() || religion.getSelectedItem() == null) {
                 JOptionPane.showMessageDialog(this, "All fields must be filled before proceeding.");
-            } if(dobText.getText().length() != 10){
+            } else if(dobText.getText().length() != 10){
                 JOptionPane.showMessageDialog(this, "Date of Birth must be in the format dd-mm-yyyy");
             } else if (emailText.getText().matches( "^(.+)@(.+)$" ) == false){
                 JOptionPane.showMessageDialog(this, "Email not valid");
