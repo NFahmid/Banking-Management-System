@@ -17,6 +17,7 @@ public class Transaction_History extends JFrame {
         setLayout(new BorderLayout());
 
         JTextArea transaction= new JTextArea();
+        transaction.setBounds(0, 0, 1000, 720);
         transaction.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(transaction);
         add(scrollPane, BorderLayout.CENTER);
@@ -46,6 +47,9 @@ public class Transaction_History extends JFrame {
         back.setBounds(600, 450, 250, 50);
         back.addActionListener(this::performAction);
         add(back);
+
+        revalidate();
+        repaint();
 
     }
 

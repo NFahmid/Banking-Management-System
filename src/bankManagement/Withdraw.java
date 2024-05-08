@@ -5,6 +5,8 @@ import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Withdraw extends GUI_Interface_2 {
 JLabel withdrawAmount;
@@ -72,9 +74,13 @@ JLabel withdrawAmount;
                         String newBalance = String.valueOf(currentBalanceInt - amountInt);
                         updateBalance(accountNumber, pinNumber, newBalance);
 
+                        LocalDateTime now = LocalDateTime.now();
+                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                        String date = now.format(dtf);
+
                         String accountNumber = this.accountNumber;
                         BufferedWriter writer = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumber + ".txt", true));
-                        writer.write("Withdrawn: Tk " + amount);
+                        writer.write("Withdraw: \tTk " + amount + "\t" + date + "\t" + newBalance + "\t" + "Withdraw from own account");
                         writer.newLine();
                         writer.close();
 

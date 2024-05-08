@@ -5,6 +5,8 @@ import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Deposit extends GUI_Interface_2 {
     JLabel depositAmount;
@@ -65,7 +67,13 @@ public class Deposit extends GUI_Interface_2 {
 
                         String accountNumber = this.accountNumber;
                         BufferedWriter writer = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumber + ".txt", true));
-                        writer.write("Deposited: Tk " + amount);
+
+                        LocalDateTime now = LocalDateTime.now();
+
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                        String formatDateTime = now.format(formatter);
+
+                        writer.write("Deposit: \tTk " + amount + "\t" + formatDateTime + "\t" + newBalance + "\t" + "Deposit to own account");
                         writer.newLine();
                         writer.close();
 

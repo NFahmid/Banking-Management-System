@@ -5,6 +5,8 @@ import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Transfer_Cash extends GUI_Interface_2{
     String accountNumberText, pinNumber;
@@ -84,9 +86,13 @@ public class Transfer_Cash extends GUI_Interface_2{
                             String newBalance = String.valueOf(currentBalanceInt - amountInt);
                             updateBalance(accountNumberText, pinNumber, newBalance);
 
+                            LocalDateTime now = LocalDateTime.now();
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            String formatDateTime = now.format(formatter);
+
                             String accountNumber = this.accountNumberText;
                             BufferedWriter writer = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumber + ".txt", true));
-                            writer.write("Transferred: " + amount + " Tk to account number " + transferAccountNumber);
+                            writer.write("Transferred: \tTk" + amount + "\t" + formatDateTime + "\t" + newBalance + "\tTransferred to " + transferAccountNumber);
                             writer.newLine();
                             writer.close();
 
@@ -100,7 +106,7 @@ public class Transfer_Cash extends GUI_Interface_2{
 
                                 String transferAccount = transferAccountNumber;
                                 BufferedWriter transferWriter = new BufferedWriter(new FileWriter("src/accountManager/" + transferAccount + ".txt", true));
-                                transferWriter.write("Received: " + amount + " Tk from account number " + accountNumber);
+                                transferWriter.write("Received: \tTk" + amount + "\t" + formatDateTime + "\t" + newTransferAccountBalance + "\tReceived from " + accountNumber);
                                 transferWriter.newLine();
                                 transferWriter.close();
 

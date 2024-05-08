@@ -3,7 +3,8 @@ package bankManagement;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.util.Random;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Signup_page_3 extends GUI_Interface{
     JLabel form, congrats, l1, l3, pin, rePin, question, balance;
@@ -179,11 +180,17 @@ public class Signup_page_3 extends GUI_Interface{
                         bufferedWriter.write("\n");
                         bufferedWriter.close();
 
+                        LocalDateTime myDateObj = LocalDateTime.now();
+                        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        String formattedDate = myDateObj.format(myFormatObj);
+
                         String accountNumberString = String.valueOf(accountNumber);
                         BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumberString + ".txt", true));
-                        bufferedWriter1.write("Account Number: Tk " + accountNumber);
+                        bufferedWriter1.write("Account Number: " + accountNumber + " created on " + formattedDate);
                         bufferedWriter1.newLine();
-                        bufferedWriter1.write("Initial amount deposited: Tk " + balanceText.getText());
+                        bufferedWriter1.write("Deposit/Withdraw \t Amount \t Time \t Balance \t Description");
+                        bufferedWriter1.newLine();
+                        bufferedWriter1.write("Initial deposit: \tTk " + balanceText.getText() + " \t" + formattedDate + " \tTk " + balanceText.getText() + " \tInitial deposit");
                         bufferedWriter1.newLine();
                         bufferedWriter1.close();
 
