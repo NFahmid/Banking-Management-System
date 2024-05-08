@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -47,10 +49,24 @@ public class Login extends GUI_Interface{
 
         accountNoTextField = new JTextField();
         accountNoTextField.setBounds(250, 150, 200, 30);
+        accountNoTextField.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    pinNoTextField.requestFocus();
+                }
+            }
+        });
         add(accountNoTextField);
 
         pinNoTextField = new JPasswordField();
         pinNoTextField.setBounds(250, 200, 200, 30);
+        pinNoTextField.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    login.doClick();
+                }
+            }
+        });
         add(pinNoTextField);
 
         login = new JButton("LOGIN");

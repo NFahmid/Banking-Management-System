@@ -46,7 +46,7 @@ public class Transaction_History extends JFrame {
         back.setFont(new Font("Oswarld", Font.BOLD, 20));
         back.setBounds(600, 450, 250, 50);
         back.addActionListener(this::performAction);
-        add(back);
+        add(back, BorderLayout.SOUTH);
 
         revalidate();
         repaint();
