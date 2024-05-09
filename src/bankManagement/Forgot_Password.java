@@ -27,7 +27,7 @@ public class Forgot_Password extends JFrame{
         add(accountNumber);
 
         accountNumberText = new JTextField();
-        accountNumberText.setBounds(500, 215, 200, 25);
+        accountNumberText.setBounds(520, 215, 200, 25);
         add(accountNumberText);
 
         email = new JLabel("Email:");
@@ -37,7 +37,7 @@ public class Forgot_Password extends JFrame{
         add(email);
 
         emailText = new JTextField();
-        emailText.setBounds(500, 265, 200, 25);
+        emailText.setBounds(520, 265, 200, 25);
         add(emailText);
 
         newPassword = new JLabel("New Password:");
@@ -47,7 +47,7 @@ public class Forgot_Password extends JFrame{
         add(newPassword);
 
         newPasswordText = new JTextField();
-        newPasswordText.setBounds(500, 315, 200, 25);
+        newPasswordText.setBounds(520, 315, 200, 25);
         add(newPasswordText);
 
         confirmPassword = new JLabel("Confirm Password:");
@@ -57,7 +57,7 @@ public class Forgot_Password extends JFrame{
         add(confirmPassword);
 
         confirmPasswordText = new JTextField();
-        confirmPasswordText.setBounds(500, 365, 200, 25);
+        confirmPasswordText.setBounds(520, 365, 200, 25);
         confirmPassword.addKeyListener(new KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
