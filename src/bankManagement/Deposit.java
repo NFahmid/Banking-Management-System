@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,6 +28,15 @@ public class Deposit extends GUI_Interface_2 {
 
         depositAmountText = new JTextField();
         depositAmountText.setBounds(300, 300, 420, 50);
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    deposit.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
         add(depositAmountText);
 
         deposit = new JButton("DEPOSIT");

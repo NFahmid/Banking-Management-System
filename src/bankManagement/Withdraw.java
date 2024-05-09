@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,6 +30,16 @@ JLabel withdrawAmount;
         withdrawAmountText = new JTextField(20);
         withdrawAmountText.setBounds(300, 300, 420, 50);
         add(withdrawAmountText);
+
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    withdraw.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
 
         withdraw = new JButton("WITHDRAW");
         withdraw.setBackground(Color.GREEN);

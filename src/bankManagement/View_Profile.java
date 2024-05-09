@@ -2,12 +2,15 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
 public class View_Profile extends GUI_Interface_2{
     String accountNumberText, pinNUmber;
+    JButton back;
 
     View_Profile(String accountNumber, String pinNumber) {
         this.accountNumberText = accountNumber;
@@ -47,7 +50,15 @@ public class View_Profile extends GUI_Interface_2{
             e.printStackTrace();
         }
 
-        JButton back = new JButton("Back");
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
+
+        back = new JButton("Back");
         back.setFont(new Font("DialogInput", Font.BOLD, 20));
         back.setBounds(300, 400, 150, 30);
         back.setBackground(Color.BLACK);

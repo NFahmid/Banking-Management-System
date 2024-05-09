@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.FileWriter;
 
 public class Signup_page_2 extends GUI_Interface{
@@ -10,6 +12,7 @@ public class Signup_page_2 extends GUI_Interface{
     JComboBox accountTypeCombo, occupationCombo, educationCombo;
     JRadioButton yes, no, yes1, no1;
     ButtonGroup seniorCitizenGroup, existingAccountGroup;
+    JButton next, back;
     int accountNumber;
 
 
@@ -164,14 +167,24 @@ public class Signup_page_2 extends GUI_Interface{
         nomineeNIDText.setBounds(550, 680, 200, 30);
         add(nomineeNIDText);
 
-        JButton next = new JButton("Next");
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    next.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
+
+        next = new JButton("Next");
         next.setBackground(Color.BLUE);
         next.setForeground(Color.WHITE);
         next.setBounds(500, 730, 100, 30);
         next.addActionListener(this::performAction);
         add(next);
 
-        JButton back = new JButton("Back");
+        back = new JButton("Back");
         back.setBackground(Color.BLUE);
         back.setForeground(Color.WHITE);
         back.setBounds(300, 730, 100, 30);

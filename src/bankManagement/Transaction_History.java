@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -39,6 +41,14 @@ public class Transaction_History extends JFrame {
         setSize(1080, 720);
         setLocation(220, 40);
         setVisible(true);
+
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
 
         back = new JButton("Back");
         back.setBackground(Color.BLUE);

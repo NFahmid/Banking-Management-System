@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.*;
@@ -13,6 +15,7 @@ public class Signup extends GUI_Interface {
     JComboBox religion;
     ButtonGroup genderGroup, maritalStatusGroup;
     JRadioButton male, female, married, unmarried;
+    JButton next, back;
     int accountNumber;
 
     Signup(){
@@ -169,14 +172,24 @@ public class Signup extends GUI_Interface {
         religion.setBounds(300, 640, 200, 30);
         add(religion);
 
-        JButton next = new JButton("Next");
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    next.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
+
+        next = new JButton("Next");
         next.setBackground(Color.BLUE);
         next.setForeground(Color.WHITE);
         next.setBounds(500, 690, 100, 30);
         next.addActionListener(this::performAction);
         add(next);
 
-        JButton back = new JButton("Back");
+        back = new JButton("Back");
         back.setBackground(Color.BLUE);
         back.setForeground(Color.WHITE);
         back.setBounds(300, 690, 100, 30);

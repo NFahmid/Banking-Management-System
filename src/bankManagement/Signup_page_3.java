@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,6 +12,7 @@ public class Signup_page_3 extends GUI_Interface{
     JLabel form, congrats, l1, l3, pin, rePin, question, balance;
     JTextField pinText, rePinText, balanceText;
     JCheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7;
+    JButton submit, back;
     int accountNumber;
 
 
@@ -112,14 +115,24 @@ public class Signup_page_3 extends GUI_Interface{
         checkBox7.setBounds(100, 600, 600, 30);
         add(checkBox7);
 
-        JButton submit = new JButton("Submit");
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    submit.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
+
+        submit = new JButton("Submit");
         submit.setBackground(new java.awt.Color(204, 204, 255));
         submit.setForeground(Color.BLACK);
         submit.setBounds(250, 650, 100, 30);
         submit.addActionListener(this::performAction);
         add(submit);
 
-        JButton back = new JButton("Back");
+        back = new JButton("Back");
         back.setBackground(new java.awt.Color(204, 204, 255));
         back.setForeground(Color.BLACK);
         back.setBounds(400, 650, 100, 30);

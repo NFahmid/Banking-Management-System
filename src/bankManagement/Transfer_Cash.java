@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -45,6 +47,16 @@ public class Transfer_Cash extends GUI_Interface_2{
          amountText = new JTextField();
         amountText.setBounds(350, 400, 350, 30);
         add(amountText);
+
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    transfer.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
 
          transfer = new JButton("Transfer");
         transfer.setFont(new java.awt.Font("DialogInput", 1, 20));

@@ -53,6 +53,8 @@ public class Login extends GUI_Interface{
             public void keyPressed(java.awt.event.KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     pinNoTextField.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    System.exit(0);
                 }
             }
         });
@@ -64,6 +66,8 @@ public class Login extends GUI_Interface{
             public void keyPressed(java.awt.event.KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     login.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    System.exit(0);
                 }
             }
         });

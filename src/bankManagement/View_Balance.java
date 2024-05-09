@@ -1,6 +1,8 @@
 package bankManagement;
 
 import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class View_Balance extends GUI_Interface_2{
     String accountNumber, pinNumber;
@@ -20,6 +22,14 @@ public class View_Balance extends GUI_Interface_2{
             balance.setBounds(300, 200, 600, 50);
             add(balance);
         }
+
+        addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
 
         back = new JButton("BACK");
         back.setBackground(java.awt.Color.BLUE);

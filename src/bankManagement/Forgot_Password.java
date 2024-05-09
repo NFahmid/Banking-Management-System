@@ -2,6 +2,8 @@ package bankManagement;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.*;
 
 public class Forgot_Password extends JFrame{
@@ -12,65 +14,76 @@ public class Forgot_Password extends JFrame{
     Forgot_Password() {
         setLayout(null);
 
-        form = new JLabel("FORGOT PASSWORD");
-        form.setFont(new Font("Monospaced", Font.BOLD, 38));
-        form.setForeground(Color.BLUE);
-        form.setBounds(250, 20, 600, 50);
+        form = new JLabel("FORGOT PASSWORD FORM");
+        form.setFont(new Font("Raleway", Font.BOLD, 22));
+        form.setForeground(Color.BLACK);
+        form.setBounds(350, 100, 600, 50);
         add(form);
 
-        accountNumber = new JLabel("ACCOUNT NUMBER");
-        accountNumber.setFont(new Font("DialogInput", Font.BOLD, 20));
-        accountNumber.setForeground(Color.BLUE);
-        accountNumber.setBounds(100, 100, 200, 30);
+        accountNumber = new JLabel("Account Number:");
+        accountNumber.setFont(new Font("Raleway", Font.BOLD, 20));
+        accountNumber.setForeground(Color.BLACK);
+        accountNumber.setBounds(300, 200, 200, 50);
         add(accountNumber);
 
         accountNumberText = new JTextField();
-        accountNumberText.setBounds(300, 100, 200, 30);
+        accountNumberText.setBounds(500, 215, 200, 25);
         add(accountNumberText);
 
-        email = new JLabel("EMAIL");
-        email.setFont(new Font("DialogInput", Font.BOLD, 20));
-        email.setForeground(Color.BLUE);
-        email.setBounds(100, 150, 150, 30);
+        email = new JLabel("Email:");
+        email.setFont(new Font("Raleway", Font.BOLD, 20));
+        email.setForeground(Color.BLACK);
+        email.setBounds(300, 250, 200, 50);
         add(email);
 
         emailText = new JTextField();
-        emailText.setBounds(300, 150, 200, 30);
+        emailText.setBounds(500, 265, 200, 25);
         add(emailText);
 
-        newPassword = new JLabel("NEW PASSWORD");
-        newPassword.setFont(new Font("DialogInput", Font.BOLD, 20));
-        newPassword.setForeground(Color.BLUE);
-        newPassword.setBounds(100, 200, 200, 30);
+        newPassword = new JLabel("New Password:");
+        newPassword.setFont(new Font("Raleway", Font.BOLD, 20));
+        newPassword.setForeground(Color.BLACK);
+        newPassword.setBounds(300, 300, 200, 50);
         add(newPassword);
 
         newPasswordText = new JTextField();
-        newPasswordText.setBounds(300, 200, 200, 30);
+        newPasswordText.setBounds(500, 315, 200, 25);
         add(newPasswordText);
 
-        confirmPassword = new JLabel("CONFIRM PASSWORD");
-        confirmPassword.setFont(new Font("DialogInput", Font.BOLD, 20));
-        confirmPassword.setForeground(Color.BLUE);
-        confirmPassword.setBounds(100, 250, 200, 30);
+        confirmPassword = new JLabel("Confirm Password:");
+        confirmPassword.setFont(new Font("Raleway", Font.BOLD, 20));
+        confirmPassword.setForeground(Color.BLACK);
+        confirmPassword.setBounds(300, 350, 200, 50);
         add(confirmPassword);
 
         confirmPasswordText = new JTextField();
-        confirmPasswordText.setBounds(300, 250, 200, 30);
+        confirmPasswordText.setBounds(500, 365, 200, 25);
+        confirmPassword.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    submit.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    back.doClick();
+                }
+            }
+        });
         add(confirmPasswordText);
+
 
         submit = new JButton("SUBMIT");
         submit.setBackground(Color.GREEN);
         submit.setForeground(Color.BLACK);
         submit.setFont(new Font("Raleway", Font.BOLD, 20));
-        submit.setBounds(300, 300, 150, 30);
+        submit.setBounds(300, 450, 150, 30);
         submit.addActionListener(this::actionPerformed);
         add(submit);
+
 
         back = new JButton("BACK");
         back.setBackground(Color.BLUE);
         back.setForeground(Color.WHITE);
         back.setFont(new Font("Raleway", Font.BOLD, 20));
-        back.setBounds(500, 300, 150, 30);
+        back.setBounds(570, 450, 150, 30);
         back.addActionListener(this::actionPerformed);
         add(back);
 
@@ -79,9 +92,9 @@ public class Forgot_Password extends JFrame{
 
         getContentPane().setBackground(new java.awt.Color(204, 204, 255));
 
-        setSize (800, 400);
+        setSize(1080, 720);
+        setLocation(220, 40);
         setVisible(true);
-        setLocation (350, 200);
     }
 
     public void actionPerformed(java.awt.event.ActionEvent e) {
