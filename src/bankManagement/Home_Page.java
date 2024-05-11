@@ -77,7 +77,7 @@ public class Home_Page extends JFrame {
         transactionHistory = new JButton("TRANSACTION HISTORY");
         transactionHistory.setBackground(Color.BLUE);
         transactionHistory.setForeground(Color.WHITE);
-        transactionHistory.setFont(new Font("Raleway", Font.BOLD, 20));
+        transactionHistory.setFont(new Font("Raleway", Font.BOLD, 15));
         transactionHistory.setBounds(600, 350, 250, 50);
         transactionHistory.addActionListener(this::performAction);
         backgroundLabel.add(transactionHistory);
