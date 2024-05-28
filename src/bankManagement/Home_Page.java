@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.*;
 
 public class Home_Page extends JFrame {
-    JButton deposit, withdraw, viewBalance, transfer, pinChange, transactionHistory, viewProfile, logout, deleteAccount;
+    JButton deposit, withdraw, viewBalance, transfer, pinChange, transactionHistory, viewProfile, logout, deleteAccount, loan, payBill;
     String pinNumber, accountNumber;
     Home_Page(String accountNumber, String pinNumber){
         this.accountNumber = accountNumber;
@@ -102,12 +102,28 @@ public class Home_Page extends JFrame {
         deleteAccount.setBackground(Color.BLUE);
         deleteAccount.setForeground(Color.WHITE);
         deleteAccount.setFont(new Font("Oswarld", Font.BOLD, 20));
-        deleteAccount.setBounds(400, 550, 250, 50);
+        deleteAccount.setBounds(400, 650, 250, 50);
         deleteAccount.addActionListener(this::performAction);
         backgroundLabel.add(deleteAccount);
 
-        setSize(1080, 720);
-        setLocation(220, 40);
+        payBill = new JButton("PAY BILL");
+        payBill.setBackground(Color.BLUE);
+        payBill.setForeground(Color.WHITE);
+        payBill.setFont(new Font("Oswarld", Font.BOLD, 20));
+        payBill.setBounds(200, 550, 250, 50);
+        payBill.addActionListener(this::performAction);
+        backgroundLabel.add(payBill);
+
+        loan = new JButton("LOAN");
+        loan.setBackground(Color.BLUE);
+        loan.setForeground(Color.WHITE);
+        loan.setFont(new Font("Oswarld", Font.BOLD, 20));
+        loan.setBounds(600, 550, 250, 50);
+        loan.addActionListener(this::performAction);
+        backgroundLabel.add(loan);
+
+        setSize(1080, 760);
+        setLocation(220, 20);
         setVisible(true);
     }
 
@@ -148,6 +164,12 @@ public class Home_Page extends JFrame {
             JOptionPane.showConfirmDialog(null, "Are you sure you want to delete your account?");
             new Delete_Account(accountNumber);
             new Login().setVisible(true);
+            dispose();
+        } else if (ae.getSource() == loan){
+            new Loan(accountNumber, pinNumber).setVisible(true);
+            dispose();
+        } else if (ae.getSource() == payBill){
+            new PayBill(accountNumber, pinNumber).setVisible(true);
             dispose();
         }
     }
