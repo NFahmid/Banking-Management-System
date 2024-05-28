@@ -92,3 +92,102 @@ Balance: 8500.0
 Services: Internet Banking, 
 --------------------------------------------------
 
+Account Number: 1111172269
+Name: Hasibul Karim
+Father's Name: Md. Rezaul Karim
+Mother's Name: Hosne Ara Begum
+Date of Birth: 27-10-2002
+Gender: male
+Email: hsbl1518@gmail.com 
+Marital Status: Unmarried
+Address: 11/D, Banani,Dhaka,1213
+City: Dhaka
+Zip Code: 1213
+Religion: Muslim
+Account Number: 1111111461
+Name: 121212as
+Father's Name: asasas
+Mother's Name: assasas
+Date of Birth: 24-06-2011
+Gender: male
+Email: hsbl1512@gmail.com
+Marital Status: Married
+Address: asasasas
+City: asasas
+Zip Code: asasas
+Religion: Muslim
+Account Type: Savings
+contactNumber of account: 01222323232
+Income: 10,000,000
+Occupation: Student
+Education: Primary
+NID number: 1234567890
+Existing Account: No
+Nominee Name: asasdas
+Nominee Relation: asdasdasdasd
+Nominee Age: asdasdasd
+Nominee Address: asdasdasd
+Nominee Contact: asdasdasd
+Nominee NID: asdasdasd
+Account Number: 1111111461
+Pin Number: 1222
+Balance: 10000
+Services: ATM Card, Internet Banking, Mobile Banking, Email Alerts, Cheque Book, E-Statement, 
+--------------------------------------------------
+
+Account Number: 1111149554
+Name: Hasib
+Father's Name: Rezaul
+Mother's Name: Hosne Ara
+Date of Birth: 12-12-2002
+Gender: male
+Email: sdsd@gmail.com
+Marital Status: Married
+Address: asdasd
+City: asdasd
+Zip Code: 1221
+Religion: Muslim
+Account Type: Savings
+contactNumber of account: 01234567890
+Income: 10,000,000
+Occupation: Student
+Education: Graduate
+NID number: 1234567890
+Existing Account: No
+Nominee Name: 12121
+Nominee Relation: 121212
+Nominee Age: 121212
+Nominee Address: 121212
+Nominee Contact: 01222332323
+Nominee NID: 1234567890
+Account Number: 1111194775
+Name: asasasasa
+Father's Name: asasasasasasasas
+Mother's Name: asasasasasasasas
+Date of Birth: 12-12-2009
+Gender: male
+Email: 123@gmail.com
+Marital Status: Married
+Address: asasasas
+City: asdasdasd
+Zip Code: 2112
+Religion: Muslim
+Account Type: Savings
+contactNumber of account: 01229239291
+Income: 10,000,000
+Occupation: Student
+Education: Graduate
+NID number: 1234567890
+Existing Account: No
+Nominee Name: asasdasdsad
+Nominee Relation: asdasdsadasd
+Nominee Age: 21231123
+Nominee Address: 123123123
+Nominee Contact: 123123123123
+Nominee NID: 123123123213123123
+Account Number: 1111194775
+Pin Number: 1222
+Balance: 10,000
+Services: Internet Banking, Email Alerts, E-Statement, 
+--------------------------------------------------
+
