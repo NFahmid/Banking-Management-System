@@ -168,6 +168,8 @@ public class Signup_page_3 extends GUI_Interface{
                         bufferedWriter.newLine();
                         bufferedWriter.write("Balance: " + balanceText.getText());
                         bufferedWriter.newLine();
+                        bufferedWriter.write("Loan amount: 0");
+                        bufferedWriter.newLine();
                         bufferedWriter.write("Services: ");
                         if (checkBox1.isSelected()) {
                             bufferedWriter.write("ATM Card, ");
