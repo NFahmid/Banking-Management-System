@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.regex.Pattern;
 
 public class Signup_page_3 extends GUI_Interface{
     JLabel form, congrats, l1, l3, pin, rePin, question, balance;
@@ -14,6 +15,27 @@ public class Signup_page_3 extends GUI_Interface{
     JCheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7;
     JButton submit, back;
     int accountNumber;
+
+    public boolean isValidMoneyString(String moneyStr) {
+        String pattern = "^[0-9,]+$";
+        return Pattern.matches(pattern, moneyStr);
+    }
+
+    
+    public int convertToInteger(String moneyStr) {
+        String moneyStrNoCommas = moneyStr.replace(",", "");
+        return Integer.parseInt(moneyStrNoCommas);
+    }
+
+    
+    public boolean checkIfGreaterThan(String moneyStr, int amount) {
+        if (!isValidMoneyString(moneyStr)) {
+            throw new IllegalArgumentException("Invalid money format");
+        }
+
+        int moneyValue = convertToInteger(moneyStr);
+        return moneyValue > amount;
+    }
 
 
     Signup_page_3(int accountNumber){
@@ -147,17 +169,17 @@ public class Signup_page_3 extends GUI_Interface{
         public void performAction(java.awt.event.ActionEvent ae){
             if (pinText.getText().isEmpty() || rePinText.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Fill all the required fields");
-            }else if (!pinText.getText().matches("[0-9]+") || !rePinText.getText().matches("[0-9]+")) {
+            } else if (!pinText.getText().matches("[0-9]+") || !rePinText.getText().matches("[0-9]+")) {
                 JOptionPane.showMessageDialog(null, "Pin number must be a number");
             } else if ( pinText.getText().length() != 4 || rePinText.getText().length() != 4){
                 JOptionPane.showMessageDialog(null, "Pin number must be 4 digits long");
-            }  else if (!pinText.getText().equals(rePinText.getText())){
+            } else if (!pinText.getText().equals(rePinText.getText())){
                 JOptionPane.showMessageDialog(null, "Entered pin numbers do not match");
             } else if (!checkBox7.isSelected()){
                 JOptionPane.showMessageDialog(null, "You need to agree to the terms and conditions to proceed");
-            } else if (Double.parseDouble(balanceText.getText()) < 1000){
-                JOptionPane.showMessageDialog(null, "Minimum balance of 1000 is required to open an account");
-            }else {
+            } else if (!checkIfGreaterThan(balanceText.getText(), 1000)) {
+                JOptionPane.showMessageDialog(null, "You have to deposit minimum 1,000 taka");
+            }  else {
                 try {
                     if (ae.getActionCommand().equals("Submit")) {
                         FileWriter file = new FileWriter("src/bankManagement/Signup.txt", true);
@@ -214,6 +236,8 @@ public class Signup_page_3 extends GUI_Interface{
                         new Login();
                     } else if (ae.getActionCommand().equals("Back")) {
                         setVisible(false);
+                        revalidate();
+                        repaint();
                         new Signup_page_2(accountNumber);
                     }
                 } catch (IOException e) {

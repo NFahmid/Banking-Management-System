@@ -206,7 +206,7 @@ public class Signup_page_2 extends GUI_Interface{
                 JOptionPane.showMessageDialog(this, "Contact number format not correct.");
             } else if (NIDText.getText() != null && NIDText.getText().length() != 10){
                 JOptionPane.showMessageDialog(this, "NID number must be 10 characters long.");
-            } else if (incomeText.getText() != null && !incomeText.getText().matches("[0-9]+")){
+            } else if (incomeText.getText() != null && !incomeText.getText().matches("[0-9,]+")){
                 JOptionPane.showMessageDialog(this, "Income must be a number.");
             } else if (NIDText.getText() != null && !NIDText.getText().matches("[0-9]+")){
                 JOptionPane.showMessageDialog(this, "NID number must be a number.");
