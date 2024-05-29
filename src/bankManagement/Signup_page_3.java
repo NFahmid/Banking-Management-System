@@ -190,7 +190,7 @@ public class Signup_page_3 extends GUI_Interface{
                         bufferedWriter.newLine();
                         bufferedWriter.write("Balance: " + balanceText.getText());
                         bufferedWriter.newLine();
-                        bufferedWriter.write("Loan amount: 0");
+                        bufferedWriter.write("Loan: 0");
                         bufferedWriter.newLine();
                         bufferedWriter.write("Services: ");
                         if (checkBox1.isSelected()) {
@@ -222,6 +222,7 @@ public class Signup_page_3 extends GUI_Interface{
                         String formattedDate = myDateObj.format(myFormatObj);
 
                         String accountNumberString = String.valueOf(accountNumber);
+
                         BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumberString + ".txt", true));
                         bufferedWriter1.write("Account Number: " + accountNumber + " created on " + formattedDate);
                         bufferedWriter1.newLine();
@@ -230,6 +231,12 @@ public class Signup_page_3 extends GUI_Interface{
                         bufferedWriter1.write("Initial deposit: \tTk " + balanceText.getText() + " \t" + formattedDate + " \tTk " + balanceText.getText() + " \tInitial deposit");
                         bufferedWriter1.newLine();
                         bufferedWriter1.close();
+
+                        BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter("src/loanManagement/" + accountNumberString + ".txt", true));
+                        bufferedWriter2.write("Amount \t Time \t Loan Balance \t Description");
+                        bufferedWriter2.newLine();
+                        bufferedWriter2.write("0 \t" + formattedDate + " \t0 \tInitial loan status");
+                        bufferedWriter2.close();
 
                         JOptionPane.showMessageDialog(null, "Account created successfully");
                         setVisible(false);

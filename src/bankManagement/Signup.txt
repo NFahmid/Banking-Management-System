@@ -1,193 +1,34 @@
-
-Account Number: 1111142511
-Name: name 2
-Father's Name: father name 2
-Mother's Name: mother name 2
-Date of Birth: 11-11-1112
-Gender: male
-Email: email@EMAIL.COM
-Marital Status: Married
-Address: address 2
-City: city 2
-Zip Code: 1211
+Account Number: 1111105072
+Name: name 1
+Father's Name: fathers name 1
+Mother's Name: mothers name 1
+Date of Birth: 11-11-1111
+Gender: female
+Email: email@email.com
+Marital Status: Unmarried
+Address: address 1
+City: city 1
+Zip Code: 1111
 Religion: Muslim
 Account Type: Savings
-contactNumber of account: 0111111111
-Income: 1112
-Occupation: Student
-Education: Primary
-NID number: 1234567890
-Existing Account: No
-Nominee Name: nominee name 1
-Nominee Relation: nominee relation 1
-Nominee Age: nominee age 1
-Nominee Address: nominee address 1
-Nominee Contact: 01212121212
-Nominee NID: nominee nid
-Account Number: 1111142511
-Pin Number: 0010
-Balance: 2177.0
-Services: Internet Banking, Email Alerts,
---------------------------------------------------
-
-Account Number: 1111142512
-Name: name 2
-Father's Name: father name 2
-Mother's Name: mother name 2
-Date of Birth: 11-11-1112
-Gender: male
-Email: email@EMAIL.COM
-Marital Status: Married
-Address: address 2
-City: city 2
-Zip Code: 1211
-Religion: Muslim
-Account Type: Savings
-contactNumber of account: 0111111111
-Income: 1112
-Occupation: Student
-Education: Primary
-NID number: 1234567890
-Existing Account: No
-Nominee Name: nominee name 1
-Nominee Relation: nominee relation 1
-Nominee Age: nominee age 1
-Nominee Address: nominee address 1
-Nominee Contact: 01212121212
-Nominee NID: nominee nid
-Account Number: 1111142512
-Pin Number: 0201
-Balance: 2000
-Services: Internet Banking, Email Alerts,
---------------------------------------------------
-
-Account Number: 1111117430
-Name: arafat
-Father's Name: abul
-Mother's Name: amena
-Date of Birth: 21-12-2000
-Gender: male
-Email: arafat@email.com
-Marital Status: Married
-Address: Dhaka
-City: Dhaka
-Zip Code: 1101
-Religion: Muslim
-Account Type: Savings
-contactNumber of account: 01747285612
+contactNumber of account: 01111111111
 Income: 10000
 Occupation: Student
-Education: Higher Secondary
-NID number: 1247592372
-Existing Account: Yes
-Nominee Name: nominee
-Nominee Relation: relation
-Nominee Age: age
-Nominee Address: address
-Nominee Contact: contact
-Nominee NID: nid
-Account Number: 1111117430
-Pin Number: 0001
-Balance: 8500.0
-Services: Internet Banking, 
---------------------------------------------------
-
-Account Number: 1111172269
-Name: Hasibul Karim
-Father's Name: Md. Rezaul Karim
-Mother's Name: Hosne Ara Begum
-Date of Birth: 27-10-2002
-Gender: male
-Email: hsbl1518@gmail.com 
-Marital Status: Unmarried
-Address: 11/D, Banani,Dhaka,1213
-City: Dhaka
-Zip Code: 1213
-Religion: Muslim
-Account Number: 1111111461
-Name: 121212as
-Father's Name: asasas
-Mother's Name: assasas
-Date of Birth: 24-06-2011
-Gender: male
-Email: hsbl1512@gmail.com
-Marital Status: Married
-Address: asasasas
-City: asasas
-Zip Code: asasas
-Religion: Muslim
-Account Type: Savings
-contactNumber of account: 01222323232
-Income: 10,000,000
-Occupation: Student
 Education: Primary
-NID number: 1234567890
+NID number: 0101010110
 Existing Account: No
-Nominee Name: asasdas
-Nominee Relation: asdasdasdasd
-Nominee Age: asdasdasd
-Nominee Address: asdasdasd
-Nominee Contact: asdasdasd
-Nominee NID: asdasdasd
-Account Number: 1111111461
-Pin Number: 1222
-Balance: 10000
-Services: ATM Card, Internet Banking, Mobile Banking, Email Alerts, Cheque Book, E-Statement, 
---------------------------------------------------
+Nominee Name: nominee name 
+Nominee Relation: nominee relation
+Nominee Age: nominee age
+Nominee Address: nominee address
+Nominee Contact: nominee contact
+Nominee NID: nominee nid
+Account Number: 1111105072
+Pin Number: 0010
+Balance: 2000
+Loan: 0
+Services: Internet Banking, Email Alerts,
 
-Account Number: 1111149554
-Name: Hasib
-Father's Name: Rezaul
-Mother's Name: Hosne Ara
-Date of Birth: 12-12-2002
-Gender: male
-Email: sdsd@gmail.com
-Marital Status: Married
-Address: asdasd
-City: asdasd
-Zip Code: 1221
-Religion: Muslim
-Account Type: Savings
-contactNumber of account: 01234567890
-Income: 10,000,000
-Occupation: Student
-Education: Graduate
-NID number: 1234567890
-Existing Account: No
-Nominee Name: 12121
-Nominee Relation: 121212
-Nominee Age: 121212
-Nominee Address: 121212
-Nominee Contact: 01222332323
-Nominee NID: 1234567890
-Account Number: 1111194775
-Name: asasasasa
-Father's Name: asasasasasasasas
-Mother's Name: asasasasasasasas
-Date of Birth: 12-12-2009
-Gender: male
-Email: 123@gmail.com
-Marital Status: Married
-Address: asasasas
-City: asdasdasd
-Zip Code: 2112
-Religion: Muslim
-Account Type: Savings
-contactNumber of account: 01229239291
-Income: 10,000,000
-Occupation: Student
-Education: Graduate
-NID number: 1234567890
-Existing Account: No
-Nominee Name: asasdasdsad
-Nominee Relation: asdasdsadasd
-Nominee Age: 21231123
-Nominee Address: 123123123
-Nominee Contact: 123123123123
-Nominee NID: 123123123213123123
-Account Number: 1111194775
-Pin Number: 1222
-Balance: 10,000
-Services: Internet Banking, Email Alerts, E-Statement, 
---------------------------------------------------
+
+
 

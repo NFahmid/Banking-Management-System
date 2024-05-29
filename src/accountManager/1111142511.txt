@@ -1,6 +1,0 @@
-Withdrawn: Tk 3000
-Deposited: Tk 2000
-Withdrawn: Tk 123
-Deposited: Tk 500 at 2024-05-08 17:34:36
-Deposited: Tk 	500	 at 	2024-05-08 17:36:02
-Received: 	Tk300	2024-05-08 17:54:54	2177.0	Received from 1111117430
