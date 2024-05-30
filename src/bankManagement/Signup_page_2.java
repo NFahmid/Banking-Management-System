@@ -185,8 +185,8 @@ public class Signup_page_2 extends GUI_Interface{
         add(next);
 
         back = new JButton("Back");
-        back.setBackground(Color.BLUE);
-        back.setForeground(Color.WHITE);
+        back.setBackground(Color.GREEN);
+        back.setForeground(Color.BLACK);
         back.setBounds(300, 730, 100, 30);
         back.addActionListener(this::performAction);
         add(back);

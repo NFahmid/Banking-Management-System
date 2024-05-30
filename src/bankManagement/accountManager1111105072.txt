@@ -11,3 +11,5 @@ Loan: 	Tk 500.0	2024-05-30 12:27:36	2500.0	Loan repaid
 Loan: 	Tk 200.0	2024-05-30 12:27:41	3200.0	Loan taken
 Loan: 	Tk 150.0	2024-05-30 12:27:47	2850.0	Loan repaid
 Loan: 	Tk 50.0	2024-05-30 12:27:59	2950.0	Loan repaid
+Loan: 	Tk 500.0	2024-05-30 12:50:46	3450.0	Loan taken
+Bill: 	Tk 1000.0	2024-05-30 22:30:24	2450.0	Utility Bill paid for Electricity to account number: 1111104042

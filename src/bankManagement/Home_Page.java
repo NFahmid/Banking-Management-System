@@ -91,15 +91,15 @@ public class Home_Page extends JFrame {
         backgroundLabel.add(viewProfile);
 
         logout = new JButton("LOGOUT");
-        logout.setBackground(Color.BLUE);
+        logout.setBackground(Color.GREEN);
         logout.setForeground(Color.WHITE);
         logout.setFont(new Font("Oswarld", Font.BOLD, 20));
-        logout.setBounds(600, 450, 250, 50);
+        logout.setBounds(600, 550, 250, 50);
         logout.addActionListener(this::performAction);
         backgroundLabel.add(logout);
 
         deleteAccount = new JButton("DELETE ACCOUNT");
-        deleteAccount.setBackground(Color.BLUE);
+        deleteAccount.setBackground(Color.RED);
         deleteAccount.setForeground(Color.WHITE);
         deleteAccount.setFont(new Font("Oswarld", Font.BOLD, 20));
         deleteAccount.setBounds(400, 650, 250, 50);
@@ -118,7 +118,7 @@ public class Home_Page extends JFrame {
         loan.setBackground(Color.BLUE);
         loan.setForeground(Color.WHITE);
         loan.setFont(new Font("Oswarld", Font.BOLD, 20));
-        loan.setBounds(600, 550, 250, 50);
+        loan.setBounds(600, 450, 250, 50);
         loan.addActionListener(this::performAction);
         backgroundLabel.add(loan);
 

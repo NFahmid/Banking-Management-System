@@ -25,6 +25,6 @@ Nominee Contact: nominee contact
 Nominee NID: nominee nid
 Account Number: 1111105072
 Pin Number: 0020
-Balance: 2950.0
-Loan: 0
+Balance: 72.0
+Loan: 0.0
 Services: Internet Banking, Email Alerts,

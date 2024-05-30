@@ -14,8 +14,8 @@ public class Loan extends GUI_Interface_2 {
 
     JLabel loanLabel, balanceLabel;
 
-    double loanAmount1, loanBalance;
-    double balance;
+    double loanAmount1 = 0;
+    double balance, loanBalance;
 
     Loan(String accountNumber, String pinNumber){
         this.accountNumber = accountNumber;
@@ -35,7 +35,7 @@ public class Loan extends GUI_Interface_2 {
                     currentPin = parts[1];
                 } else if (parts[0].equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
                     balance = Double.parseDouble(parts[1]);
-                } else if (parts[0].equals("Loan Amount") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
+                } else if (parts[0].equals("Loan") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
                     loanBalance = Double.parseDouble(parts[1]);
                 }
             }
@@ -90,6 +90,9 @@ public class Loan extends GUI_Interface_2 {
     public void performAction(ActionEvent ae) {
         if (ae.getSource() == takeALoan) {
             String loanAmount = JOptionPane.showInputDialog("Enter the amount you want to take as loan");
+            if (loanAmount == null) {
+                return;
+            }
             loanAmount1 = Double.parseDouble(loanAmount);
 
             if (loanBalance > 0) {
@@ -99,20 +102,23 @@ public class Loan extends GUI_Interface_2 {
                 LocalDateTime now = LocalDateTime.now();
                 String date = dtf.format(now);
 
-                loanBalance = loanAmount1*0.05;
+                loanBalance = loanAmount1 + loanAmount1*0.05;
 
                 updateLoanBalance(accountNumber, pinNumber, loanBalance, balance + loanAmount1);
 
-                JOptionPane.showMessageDialog(null, "Loan of " + loanBalance  + " with an interest of 5% and have to repay " + (loanBalance + loanAmount1) + " on " + date);
+                JOptionPane.showMessageDialog(null, "Loan of " + loanAmount  + " with an interest of 5% and have to repay " + (loanBalance + loanAmount1) + " on " + date);
 
                 updateTransactionHistory(accountNumber, loanAmount1, balance + loanAmount1, "Loan taken");
 
                 balanceLabel.setText("BALANCE: " + (balance + loanAmount1));
-                loanLabel.setText("LOAN AMOUNT: " + loanAmount1);
+                loanLabel.setText("LOAN AMOUNT: " + loanBalance);
             }
 
         } else if (ae.getSource() == repayLoan) {
             String repayLoan = JOptionPane.showInputDialog("Enter the amount you want to repay");
+            if (repayLoan == null) {
+                return;
+            }
             double repayLoan1 = Double.parseDouble(repayLoan);
 
             if (repayLoan1 > loanBalance) {
@@ -162,8 +168,8 @@ public class Loan extends GUI_Interface_2 {
                     currentAccountNumber = parts[1];
                 } else if (parts[0].equals("Pin Number")) {
                     currentPin = parts[1];
-                } else if (parts[0].equals("Loan Amount") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
-                    line = "Loan Amount: " + loanBalance;
+                } else if (parts[0].equals("Loan") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
+                    line = "Loan: " + loanBalance;
                 } else if (parts[0].equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
                     line = "Balance: " + balance;
                 }
@@ -187,8 +193,9 @@ public class Loan extends GUI_Interface_2 {
     }
 
     public void updateTransactionHistory(String accountNumber, double loanBalance, double balance, String status){
+        String accountNumber1 = accountNumber;
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/bankManagement/accountManager" + accountNumber + ".txt", true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumber1 + ".txt", true));
 
             LocalDateTime now = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -203,6 +210,6 @@ public class Loan extends GUI_Interface_2 {
     }
 
     public static void main(String[] args) {
-        new Loan(" ", " ");
+        new Loan("", "");
     }
 }

@@ -148,14 +148,14 @@ public class Signup_page_3 extends GUI_Interface{
         });
 
         submit = new JButton("Submit");
-        submit.setBackground(new java.awt.Color(204, 204, 255));
+        submit.setBackground(Color.BLUE);
         submit.setForeground(Color.BLACK);
         submit.setBounds(250, 650, 100, 30);
         submit.addActionListener(this::performAction);
         add(submit);
 
         back = new JButton("Back");
-        back.setBackground(new java.awt.Color(204, 204, 255));
+        back.setBackground(Color.GREEN);
         back.setForeground(Color.BLACK);
         back.setBounds(400, 650, 100, 30);
         back.addActionListener(this::performAction);

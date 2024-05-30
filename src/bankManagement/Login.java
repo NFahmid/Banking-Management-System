@@ -95,8 +95,8 @@ public class Login extends GUI_Interface{
         add(clear);
 
         showPassword = new JButton("Show Password");
-        showPassword.setBackground(Color.BLUE);
-        showPassword.setForeground(Color.WHITE);
+        showPassword.setBackground(Color.GREEN);
+        showPassword.setForeground(Color.BLACK);
         showPassword.setBounds(460, 200, 150, 30);
         showPassword.addActionListener(this::performAction);
         add(showPassword);
@@ -109,7 +109,7 @@ public class Login extends GUI_Interface{
         add(forgotPassword);
 
         exit = new JButton("Exit");
-        exit.setBackground(Color.BLUE);
+        exit.setBackground(Color.RED);
         exit.setForeground(Color.WHITE);
         exit.setBounds(400, 320, 100, 30);
         exit.addActionListener(e -> System.exit(0));
