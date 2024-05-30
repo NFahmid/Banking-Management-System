@@ -40,9 +40,15 @@ public class Delete_Account {
                 return;
             }
 
-            if (!tempFile.renameTo(signupFile))
+            if (!tempFile.renameTo(signupFile)) {
                 System.out.println("Could not rename file");
+            }
 
+            File accountManagerFile = new File("src/bankManagement/accountManager" + accountNumber + ".txt");
+            if (!accountManagerFile.delete()) {
+                System.out.println("Could not delete file");
+                return;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

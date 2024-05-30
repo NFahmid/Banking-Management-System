@@ -161,10 +161,12 @@ public class Home_Page extends JFrame {
             new View_Profile(accountNumber, pinNumber).setVisible(true);
             dispose();
         } else if (ae.getSource() == deleteAccount){
-            JOptionPane.showConfirmDialog(null, "Are you sure you want to delete your account?");
-            new Delete_Account(accountNumber);
-            new Login().setVisible(true);
-            dispose();
+            int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete your account? This action cannot be undone", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if(response == JOptionPane.YES_OPTION) {
+                new Delete_Account(accountNumber);
+                new Login().setVisible(true);
+                dispose();
+            }
         } else if (ae.getSource() == loan){
             new Loan(accountNumber, pinNumber).setVisible(true);
             dispose();

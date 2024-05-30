@@ -14,7 +14,7 @@ public class Loan extends GUI_Interface_2 {
 
     JLabel loanLabel, balanceLabel;
 
-    double loanAmount, loanBalance;
+    double loanAmount1, loanBalance;
     double balance;
 
     Loan(String accountNumber, String pinNumber){
@@ -22,22 +22,6 @@ public class Loan extends GUI_Interface_2 {
         this.pinNumber = pinNumber;
 
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("src/loanManagement/" + accountNumber + ".txt"));
-
-            String lastLine = null;
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                lastLine = line;
-            }
-
-            if (lastLine != null){
-                String[] parts = lastLine.split("\t");
-                loanAmount = Double.parseDouble(parts[0]);
-                loanBalance = Double.parseDouble(parts[2]);
-            }
-
-            reader.close();
 
             BufferedReader reader1 = new BufferedReader(new FileReader("src/bankManagement/Signup.txt"));
             String line1;
@@ -51,6 +35,8 @@ public class Loan extends GUI_Interface_2 {
                     currentPin = parts[1];
                 } else if (parts[0].equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
                     balance = Double.parseDouble(parts[1]);
+                } else if (parts[0].equals("Loan Amount") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
+                    loanBalance = Double.parseDouble(parts[1]);
                 }
             }
             reader1.close();
@@ -60,8 +46,6 @@ public class Loan extends GUI_Interface_2 {
 
         setTitle("Loan");
 
-        System.out.println(balance);
-
         loanLabel = new JLabel("LOAN AMOUNT: " + loanBalance);
         loanLabel.setBounds(400, 100, 500, 40);
         loanLabel.setFont(new Font("Arial", Font.BOLD, 20));
@@ -69,25 +53,31 @@ public class Loan extends GUI_Interface_2 {
         add(loanLabel);
 
         balanceLabel = new JLabel("BALANCE: " + balance);
-        balanceLabel.setBounds(400, 150, 500, 40);
+        balanceLabel.setBounds(420, 150, 500, 40);
         balanceLabel.setFont(new Font("Arial", Font.BOLD, 20));
         balanceLabel.setForeground(Color.BLACK);
         add(balanceLabel);
 
+        JLabel text = new JLabel("NB: You have to repay the loan with 5% interest");
+        text.setBounds(300, 200, 500, 40);
+        text.setFont(new Font("Arial", Font.BOLD, 20));
+        text.setForeground(Color.RED);
+        add(text);
+
         takeALoan = new JButton("Take a loan");
-        takeALoan.setBounds(300, 250, 200, 40);
+        takeALoan.setBounds(300, 350, 200, 40);
         takeALoan.setForeground(Color.BLACK);
         takeALoan.addActionListener(this::performAction);
         add(takeALoan);
 
         repayLoan = new JButton("REPAY LOAN");
-        repayLoan.setBounds(550, 250, 200, 40);
+        repayLoan.setBounds(550, 350, 200, 40);
         repayLoan.setForeground(Color.BLACK);
         repayLoan.addActionListener(this::performAction);
         add(repayLoan);
 
         back = new JButton("BACK");
-        back.setBounds(400, 350, 250, 40);
+        back.setBounds(400, 450, 250, 40);
         back.setForeground(Color.BLACK);
         back.addActionListener(this::performAction);
         add(back);
@@ -99,166 +89,116 @@ public class Loan extends GUI_Interface_2 {
 
     public void performAction(ActionEvent ae) {
         if (ae.getSource() == takeALoan) {
-            try{
-                if (loanBalance > 0){
-                    JOptionPane.showMessageDialog(this, "You have an outstanding loan of " + loanBalance + " to pay");
-                    return;
-                } else {
-                    String loanAmountString = JOptionPane.showInputDialog(this, "Enter the amount you want to take as loan");
-                    loanAmount = Double.parseDouble(loanAmountString);
+            String loanAmount = JOptionPane.showInputDialog("Enter the amount you want to take as loan");
+            loanAmount1 = Double.parseDouble(loanAmount);
 
-                    if (loanAmount > 0){
-                        loanBalance = loanAmount + (loanAmount * 0.05);
-                        JOptionPane.showMessageDialog(this, "You have taken a loan of " + loanAmount + " with a 10% interest rate. You will have to pay " + loanBalance + " in total");
-                        balance = balance + loanAmount;
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Invalid amount entered");
-                    }
-                }
+            if (loanBalance > 0) {
+                JOptionPane.showMessageDialog(null, "Please repay your previous loan");
+            } else {
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                String date = dtf.format(now);
 
-                LocalDateTime myDateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-                String formattedDate = myDateObj.format(myFormatObj);
+                loanBalance = loanAmount1*0.05;
 
-                BufferedWriter writer = new BufferedWriter(new FileWriter("src/loanManagement/" + accountNumber + ".txt", true));
-                writer.write(loanAmount + "\t" + formattedDate + "\t" + loanBalance + "\t" + "Took a loan");
-                writer.newLine();
-                writer.close();
+                updateLoanBalance(accountNumber, pinNumber, loanBalance, balance + loanAmount1);
 
-                BufferedWriter writer1 = new BufferedWriter(new FileWriter("src/bankManagement/temp.txt"));
-                BufferedReader reader = new BufferedReader(new FileReader("src/bankManagement/Signup.txt"));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    String[] parts = line.split(": ");
-                    if (parts.length >= 2) {
-                        String key = parts[0];
-                        String value = parts[1];
+                JOptionPane.showMessageDialog(null, "Loan of " + loanBalance  + " with an interest of 5% and have to repay " + (loanBalance + loanAmount1) + " on " + date);
 
-                        if (key.equals("Account Number") && value.equals(accountNumber)) {
-                            String[] parts1 = line.split(": ");
-                            if (parts1.length >= 2) {
-                                String key1 = parts1[0];
-                                String value1 = parts1[1];
+                updateTransactionHistory(accountNumber, loanAmount1, balance + loanAmount1, "Loan taken");
 
-                                if (key1.equals("Loan Balance")) {
-                                    writer1.write("Loan Balance: " + (loanBalance + loanAmount));
-                                } else if (key1.equals("Balance")) {
-                                    writer1.write("Balance: " + balance);
-                                } else {
-                                    writer1.write(line);
-                                }
-                            }
-                        } else {
-                            writer1.write(line);
-                        }
-                    }
-                    writer1.newLine();
-                }
-                writer1.close();
-                reader.close();
-
-                File inputFile = new File("src/bankManagement/Signup.txt");
-                File tempFile = new File("src/bankManagement/temp.txt");
-
-                if (!inputFile.delete()) {
-                    JOptionPane.showMessageDialog(null, "Could not delete original file");
-                    return;
-                }
-
-                if (!tempFile.renameTo(inputFile)) {
-                    JOptionPane.showMessageDialog(null, "Could not rename temporary file");
-                }
-
-                loanLabel.setText("LOAN AMOUNT: " + loanBalance);
-                balanceLabel.setText("BALANCE: " + balance);
-
-            } catch (IOException e){
-                e.printStackTrace();
+                balanceLabel.setText("BALANCE: " + (balance + loanAmount1));
+                loanLabel.setText("LOAN AMOUNT: " + loanAmount1);
             }
 
         } else if (ae.getSource() == repayLoan) {
-            try {
-                String loanAmountString = JOptionPane.showInputDialog(this, "Enter the amount you want to repay");
-                double repayAmount = Double.parseDouble(loanAmountString);
+            String repayLoan = JOptionPane.showInputDialog("Enter the amount you want to repay");
+            double repayLoan1 = Double.parseDouble(repayLoan);
 
-                if (loanBalance == 0){
-                    JOptionPane.showMessageDialog(this, "You don't have any loan");
-                } else if (repayAmount > loanBalance){
-                    JOptionPane.showMessageDialog(this, "You can't repay more than your loan balance");
-                    return;
-                } else if (repayAmount == loanBalance){
-                    JOptionPane.showMessageDialog(this, "You have successfully repaid your loan");
-                    balance = balance - loanBalance;
-                } else {
-                    JOptionPane.showMessageDialog(this, "You have successfully repaid " + repayAmount + " of your loan");
-                    balance = balance - repayAmount;
-                }
+            if (repayLoan1 > loanBalance) {
+                JOptionPane.showMessageDialog(null, "You are paying more than your loan amount");
+            }else if (repayLoan1 > balance) {
+                JOptionPane.showMessageDialog(null, "Not enough balance in your account");
+            } else if (repayLoan1 < 0) {
+                JOptionPane.showMessageDialog(null, "Invalid amount");
+            } else {
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+                String date = dtf.format(now);
 
-                LocalDateTime myDateObj = LocalDateTime.now();
-                DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-                String formattedDate = myDateObj.format(myFormatObj);
+                updateLoanBalance(accountNumber, pinNumber, loanBalance - repayLoan1, balance - repayLoan1);
 
-                BufferedWriter writer = new BufferedWriter(new FileWriter("src/loanManagement/" + accountNumber + ".txt", true));
-                writer.write(repayAmount + "\t" + formattedDate + "\t" + (loanBalance - repayAmount) + "\t" + "Repayed loan");
-                writer.newLine();
-                writer.close();
+                JOptionPane.showMessageDialog(null, "Loan of " + repayLoan1 + " repaid successfully with 5% interest. " );
 
-                BufferedWriter writer1 = new BufferedWriter(new FileWriter("src/bankManagement/temp.txt"));
-                BufferedReader reader = new BufferedReader(new FileReader("src/bankManagement/Signup.txt"));
-                String line;
+                updateTransactionHistory(accountNumber, repayLoan1, balance - repayLoan1, "Loan repaid");
 
-                while ((line = reader.readLine()) != null) {
-                    String[] parts = line.split(": ");
-                    if (parts.length >= 2) {
-                        String key = parts[0];
-                        String value = parts[1];
+                balanceLabel.setText("BALANCE: " + (balance - repayLoan1));
+                loanLabel.setText("LOAN AMOUNT: " + (loanBalance - repayLoan1));
 
-                        if (key.equals("Account Number") && value.equals(accountNumber)) {
-                            String[] parts1 = line.split(": ");
-                            if (parts1.length >= 2) {
-                                String key1 = parts1[0];
-                                String value1 = parts1[1];
-
-                                if (key1.equals("Loan Balance")) {
-                                    writer1.write("Loan Balance: " + (loanBalance - repayAmount));
-                                } else if (key1.equals("Balance")) {
-                                    writer1.write("Balance: " + balance);
-                                } else {
-                                    writer1.write(line);
-                                }
-                            }
-                        } else {
-                            writer1.write(line);
-                        }
-                    }
-                    writer1.newLine();
-                }
-                writer1.close();
-                reader.close();
-
-                File inputFile = new File("src/bankManagement/Signup.txt");
-                File tempFile = new File("src/bankManagement/temp.txt");
-
-                if (!inputFile.delete()) {
-                    JOptionPane.showMessageDialog(null, "Could not delete original file");
-                    return;
-                }
-
-                if (!tempFile.renameTo(inputFile)) {
-                    JOptionPane.showMessageDialog(null, "Could not rename temporary file");
-                }
-
-                loanBalance -= repayAmount;
-                loanLabel.setText("LOAN AMOUNT: " + loanBalance);
-                balanceLabel.setText("BALANCE: " + balance);
-
-            } catch (IOException e){
-                e.printStackTrace();
+                loanBalance -= repayLoan1;
             }
 
         } else if (ae.getSource() == back) {
-            new Home_Page(accountNumber, pinNumber);
+            new Home_Page(accountNumber, pinNumber).setVisible(true);
             dispose();
+        }
+    }
+
+    public void updateLoanBalance(String accountNumber, String pinNumber, double loanBalance, double balance) {
+        try {
+            File inputFile = new File("src/bankManagement/Signup.txt");
+            File tempFile = new File("src/bankManagement/SignupTemp.txt");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String line;
+            String currentAccountNumber = null;
+            String currentPin = null;
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(": ");
+                if (parts[0].equals("Account Number")) {
+                    currentAccountNumber = parts[1];
+                } else if (parts[0].equals("Pin Number")) {
+                    currentPin = parts[1];
+                } else if (parts[0].equals("Loan Amount") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
+                    line = "Loan Amount: " + loanBalance;
+                } else if (parts[0].equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
+                    line = "Balance: " + balance;
+                }
+                writer.write(line + System.lineSeparator());
+            }
+
+            reader.close();
+            writer.close();
+
+            if (!inputFile.delete()) {
+                JOptionPane.showMessageDialog(null, "Could not delete original file");
+                return;
+            }
+
+            if (!tempFile.renameTo(inputFile)) {
+                JOptionPane.showMessageDialog(null, "Could not rename temporary file");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateTransactionHistory(String accountNumber, double loanBalance, double balance, String status){
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/bankManagement/accountManager" + accountNumber + ".txt", true));
+
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formatDateTime = now.format(formatter);
+
+            writer.write("Loan: \tTk " + loanBalance + "\t" + formatDateTime + "\t" + balance + "\t" + status);
+            writer.newLine();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
