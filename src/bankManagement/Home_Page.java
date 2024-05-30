@@ -3,6 +3,7 @@ package bankManagement;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 
 public class Home_Page extends JFrame {
@@ -195,9 +196,10 @@ public class Home_Page extends JFrame {
             writer.close();
             reader.close();
 
-            if (!signupFile.delete()) {
-                System.out.println("Could not delete file");
-                return;
+            try {
+                Files.delete(signupFile.toPath());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
 
             if (!tempFile.renameTo(signupFile))

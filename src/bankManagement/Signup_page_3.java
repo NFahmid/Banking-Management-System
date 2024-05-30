@@ -226,17 +226,11 @@ public class Signup_page_3 extends GUI_Interface{
                         BufferedWriter bufferedWriter1 = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumberString + ".txt", true));
                         bufferedWriter1.write("Account Number: " + accountNumber + " created on " + formattedDate);
                         bufferedWriter1.newLine();
-                        bufferedWriter1.write("Deposit/Withdraw \t Amount \t Time \t Balance \t Description");
+                        bufferedWriter1.write("Case \t Amount \t Time \t \t \t \t \t \t \t Balance \t Description");
                         bufferedWriter1.newLine();
                         bufferedWriter1.write("Initial deposit: \tTk " + balanceText.getText() + " \t" + formattedDate + " \tTk " + balanceText.getText() + " \tInitial deposit");
                         bufferedWriter1.newLine();
                         bufferedWriter1.close();
-
-                        BufferedWriter bufferedWriter2 = new BufferedWriter(new FileWriter("src/loanManagement/" + accountNumberString + ".txt", true));
-                        bufferedWriter2.write("Amount \t Time \t Loan Balance \t Description");
-                        bufferedWriter2.newLine();
-                        bufferedWriter2.write("0 \t" + formattedDate + " \t0 \tInitial loan status");
-                        bufferedWriter2.close();
 
                         JOptionPane.showMessageDialog(null, "Account created successfully");
                         setVisible(false);

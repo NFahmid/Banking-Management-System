@@ -1,0 +1,14 @@
+Account Number: 1111170515 created on 31-05-2024 03:10:38
+Case 	 Amount 	 Time 	                         Balance 	 Description
+Initial deposit: 	Tk 10000 	31-05-2024 03:10:38 	Tk 10000 	Initial deposit
+Deposit: 	Tk 500	2024-05-31 03:14:02	10500.0	Deposit to own account
+Withdraw: 	Tk 10	2024/05/31 03:14:08	10490.0	Withdraw from own account
+Transferred: 	Tk254	2024-05-31 03:14:40	10236.0	Transferred to 1111105072
+Loan: 	Tk 1000.0	2024-05-31 03:25:28	1000.0	Loan taken
+Loan: 	Tk 1000.0	2024-05-31 03:26:34	11236.0	Loan taken
+Loan: 	Tk 1050.0	2024-05-31 03:26:51	9186.0	Loan repaid
+Bill: 	Tk 500.0	2024-05-31 03:27:14	8686.0	Utility Bill paid for Gas to account number: 1111145645
+Bill: 	Tk 458.0	2024-05-31 03:27:35	8228.0	Credit Card Bill paid for card number: 4668-4215-8642-7913
+Bill: 	Tk 90.0	2024-05-31 03:27:47	8138.0	Mobile Top Up to phone number: 01974289081
+Bill: 	Tk 945.0	2024-05-31 03:28:00	7193.0	Insurance Bill paid to policy number: 489965
+Bill: 	Tk 1256.0	2024-05-31 03:28:14	5937.0	ISP Bill paid to ISP: Orange ISP_ID: 4254

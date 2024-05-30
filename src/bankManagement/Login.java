@@ -8,13 +8,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-public class Login extends GUI_Interface{
+public class Login extends JFrame{
     JButton login, signUp, clear, showPassword, forgotPassword, exit, adminLogin;
     JTextField accountNoTextField;
     JPasswordField pinNoTextField;
 
     Login(){
-        setTitle("AMAR BANK ATM");
+        setTitle("AMAR BANK");
+
+        setLayout(null);
 
         ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("icons/logo2.jpg"));
         Image image = icon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
@@ -115,10 +117,11 @@ public class Login extends GUI_Interface{
         exit.addActionListener(e -> System.exit(0));
         add(exit);
 
+        getContentPane().setBackground(new java.awt.Color(204, 204, 255));
+
         setSize (800, 400);
         setVisible(true);
         setLocation (350, 200);
-
 
     }
 
