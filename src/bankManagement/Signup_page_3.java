@@ -10,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
 public class Signup_page_3 extends GUI_Interface{
+
     JLabel form, congrats, l1, l3, pin, rePin, question, balance;
     JTextField pinText, rePinText, balanceText;
     JCheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7;
@@ -40,6 +41,8 @@ public class Signup_page_3 extends GUI_Interface{
 
     Signup_page_3(int accountNumber){
         this.accountNumber = accountNumber;
+
+        setTitle("Signup Page 3/3");
 
         form = new JLabel("Page 3: ACCOUNT DETAILS");
         form.setFont(new Font("Raleway", Font.BOLD, 38));
@@ -74,6 +77,13 @@ public class Signup_page_3 extends GUI_Interface{
 
         pinText = new JTextField();
         pinText.setBounds(560, 250, 200, 30);
+        pinText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    rePinText.requestFocus();
+                }
+            }
+        });
         add(pinText);
 
         rePin = new JLabel("Re-enter your 4 digit pin number:");
@@ -84,6 +94,15 @@ public class Signup_page_3 extends GUI_Interface{
 
         rePinText = new JTextField();
         rePinText.setBounds(560, 300, 200, 30);
+        rePinText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    balanceText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    pinText.requestFocus();
+                }
+            }
+        });
         add(rePinText);
 
         balance = new JLabel("Enter the amount of money you want to deposit:");

@@ -19,6 +19,7 @@ public class Signup extends GUI_Interface {
     int accountNumber;
 
     Signup(){
+        setTitle("Sign Up Page 1/3");
 
          form = new JLabel("SIGN UP FORM");
         form.setFont(new Font("Monospaced", Font.BOLD, 38));
@@ -40,6 +41,13 @@ public class Signup extends GUI_Interface {
 
          nameText = new JTextField();
         nameText.setBounds(300, 140, 200, 30);
+        nameText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    fatherNameText.requestFocus();
+                }
+            }
+        });
         add(nameText);
 
          fatherName = new JLabel("FATHER'S NAME");
@@ -50,6 +58,15 @@ public class Signup extends GUI_Interface {
 
          fatherNameText = new JTextField();
         fatherNameText.setBounds(300, 190, 200, 30);
+        fatherNameText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    motherNameText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    nameText.requestFocus();
+                }
+            }
+        });
         add(fatherNameText);
 
          motherName = new JLabel("MOTHER'S NAME");
@@ -60,6 +77,15 @@ public class Signup extends GUI_Interface {
 
          motherNameText = new JTextField();
         motherNameText.setBounds(300, 240, 200, 30);
+        motherNameText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    dobText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    fatherNameText.requestFocus();
+                }
+            }
+        });
         add(motherNameText);
 
          dob = new JLabel("DATE OF BIRTH");
@@ -70,6 +96,15 @@ public class Signup extends GUI_Interface {
 
          dobText = new JTextField();
         dobText.setBounds(300, 290, 200, 30);
+        dobText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    emailText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    motherNameText.requestFocus();
+                }
+            }
+        });
         add(dobText);
 
         JLabel dobFormat = new JLabel("Format: dd-mm-yyyy");
@@ -108,6 +143,15 @@ public class Signup extends GUI_Interface {
 
         emailText = new JTextField();
         emailText.setBounds(300, 390, 200, 30);
+        emailText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    addressText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    dobText.requestFocus();
+                }
+            }
+        });
         add(emailText);
 
         maritalStatus = new JLabel("MARITAL STATUS");
@@ -140,6 +184,15 @@ public class Signup extends GUI_Interface {
 
         addressText = new JTextField();
         addressText.setBounds(300, 490, 200, 30);
+        addressText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    cityText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    emailText.requestFocus();
+                }
+            }
+        });
         add(addressText);
 
         city = new JLabel("CITY");
@@ -150,6 +203,15 @@ public class Signup extends GUI_Interface {
 
         cityText = new JTextField();
         cityText.setBounds(300, 540, 200, 30);
+        cityText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    zipCodeText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    addressText.requestFocus();
+                }
+            }
+        });
         add(cityText);
 
         zipCode = new JLabel("ZIP CODE");
@@ -160,6 +222,15 @@ public class Signup extends GUI_Interface {
 
         zipCodeText = new JTextField();
         zipCodeText.setBounds(300, 590, 200, 30);
+        zipCodeText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    next.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    cityText.requestFocus();
+                }
+            }
+        });
         add(zipCodeText);
 
         Religion = new JLabel("RELIGION");
@@ -176,8 +247,6 @@ public class Signup extends GUI_Interface {
             public void keyPressed(java.awt.event.KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     next.doClick();
-                } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    back.doClick();
                 }
             }
         });

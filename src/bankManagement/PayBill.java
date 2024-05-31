@@ -16,26 +16,7 @@ public class PayBill extends GUI_Interface_2 {
         this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
 
-        try{
-
-            BufferedReader reader1 = new BufferedReader(new FileReader("src/bankManagement/Signup.txt"));
-            String line1;
-            String currentAccountNumber = null;
-            String currentPin = null;
-            while ((line1 = reader1.readLine()) != null) {
-                String[] parts = line1.split(": ");
-                if (parts[0].equals("Account Number")) {
-                    currentAccountNumber = parts[1];
-                } else if (parts[0].equals("Pin Number")) {
-                    currentPin = parts[1];
-                } else if (parts[0].equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
-                    balance = Double.parseDouble(parts[1]);
-                }
-            }
-            reader1.close();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        getCurrentBalance(accountNumber, pinNumber);
 
         setTitle("Bill Payment");
 

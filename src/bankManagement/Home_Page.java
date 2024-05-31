@@ -7,11 +7,34 @@ import java.nio.file.Files;
 import java.util.*;
 
 public class Home_Page extends JFrame {
-    JButton deposit, withdraw, viewBalance, transfer, pinChange, transactionHistory, viewProfile, logout, deleteAccount, loan, payBill;
-    String pinNumber, accountNumber;
+    JButton deposit, withdraw, transfer, pinChange, transactionHistory, viewProfile, logout, deleteAccount, loan, payBill;
+    String pinNumber, accountNumber, balance, name;
     Home_Page(String accountNumber, String pinNumber){
         this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
+
+        try{
+
+            BufferedReader reader1 = new BufferedReader(new FileReader("src/bankManagement/Signup.txt"));
+            String line1;
+            String currentAccountNumber = null;
+            String currentPin = null;
+            while ((line1 = reader1.readLine()) != null) {
+                String[] parts = line1.split(": ");
+                if (parts[0].equals("Account Number")) {
+                    currentAccountNumber = parts[1];
+                } else if (parts[0].equals("Pin Number")) {
+                    currentPin = parts[1];
+                } else if (parts[0].equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
+                    balance = parts[1];
+                } else if (parts[0].equals("Name") && currentAccountNumber.equals(accountNumber)) {
+                    name = parts[1];
+                }
+            }
+            reader1.close();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
 
         ImageIcon backgroundImage = new ImageIcon("src/icons/transactions.jpg");
         Image img = backgroundImage.getImage().getScaledInstance(1080, 720, Image.SCALE_DEFAULT);
@@ -23,23 +46,29 @@ public class Home_Page extends JFrame {
 
         add(backgroundLabel);
 
-        JLabel greeting = new JLabel("WELCOME TO AMAR BANK");
+        JLabel greeting = new JLabel("Welcome back ");
         greeting.setFont(new Font("Raleway", Font.BOLD, 38));
         greeting.setForeground(Color.BLUE);
-        greeting.setBounds(300, 20, 600, 50);
+        greeting.setBounds(350, 50, 600, 50);
         backgroundLabel.add(greeting);
 
-        JLabel l1 = new JLabel("Select an option:");
+        JLabel name = new JLabel(this.name);
+        name.setFont(new Font("Raleway", Font.BOLD, 38));
+        name.setForeground(Color.BLUE);
+        name.setBounds(350, 100, 600, 50);
+        backgroundLabel.add(name);
+
+        JLabel l1 = new JLabel("Balance: " + balance);
         l1.setFont(new Font("Raleway", Font.BOLD, 22));
         l1.setForeground(Color.BLUE);
-        l1.setBounds(400, 80, 600, 50);
+        l1.setBounds(400, 150, 600, 50);
         backgroundLabel.add(l1);
 
         deposit = new JButton("DEPOSIT");
         deposit.setBackground(Color.BLUE);
         deposit.setForeground(Color.WHITE);
         deposit.setFont(new Font("Raleway", Font.BOLD, 20));
-        deposit.setBounds(200, 150, 250, 50);
+        deposit.setBounds(200, 250, 250, 50);
         deposit.addActionListener(this::performAction);
         backgroundLabel.add(deposit);
 
@@ -47,23 +76,15 @@ public class Home_Page extends JFrame {
         withdraw.setBackground(Color.BLUE);
         withdraw.setForeground(Color.WHITE);
         withdraw.setFont(new Font("Raleway", Font.BOLD, 20));
-        withdraw.setBounds(600, 150, 250, 50);
+        withdraw.setBounds(600, 250, 250, 50);
         withdraw.addActionListener(this::performAction);
         backgroundLabel.add(withdraw);
-
-        viewBalance = new JButton("VIEW BALANCE");
-        viewBalance.setBackground(Color.BLUE);
-        viewBalance.setForeground(Color.WHITE);
-        viewBalance.setFont(new Font("Raleway", Font.BOLD, 20));
-        viewBalance.setBounds(200, 250, 250, 50);
-        viewBalance.addActionListener(this::performAction);
-        backgroundLabel.add(viewBalance);
 
         transfer = new JButton("TRANSFER");
         transfer.setBackground(Color.BLUE);
         transfer.setForeground(Color.WHITE);
         transfer.setFont(new Font("Raleway", Font.BOLD, 20));
-        transfer.setBounds(600, 250, 250, 50);
+        transfer.setBounds(600, 550, 250, 50);
         transfer.addActionListener(this::performAction);
         backgroundLabel.add(transfer);
 
@@ -95,7 +116,7 @@ public class Home_Page extends JFrame {
         logout.setBackground(Color.GREEN);
         logout.setForeground(Color.WHITE);
         logout.setFont(new Font("Oswarld", Font.BOLD, 20));
-        logout.setBounds(600, 550, 250, 50);
+        logout.setBounds(200, 650, 250, 50);
         logout.addActionListener(this::performAction);
         backgroundLabel.add(logout);
 
@@ -103,7 +124,7 @@ public class Home_Page extends JFrame {
         deleteAccount.setBackground(Color.RED);
         deleteAccount.setForeground(Color.WHITE);
         deleteAccount.setFont(new Font("Oswarld", Font.BOLD, 20));
-        deleteAccount.setBounds(400, 650, 250, 50);
+        deleteAccount.setBounds(600, 650, 250, 50);
         deleteAccount.addActionListener(this::performAction);
         backgroundLabel.add(deleteAccount);
 
@@ -148,9 +169,6 @@ public class Home_Page extends JFrame {
             dispose();
         } else if (ae.getSource() == withdraw) {
             new Withdraw(accountNumber, pinNumber).setVisible(true);
-            dispose();
-        } else if (ae.getSource() == viewBalance){
-            new View_Balance(accountNumber, pinNumber).setVisible(true);
             dispose();
         } else if (ae.getSource() == transfer){
             new Transfer_Cash(accountNumber, pinNumber).setVisible(true);

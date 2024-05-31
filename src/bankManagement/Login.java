@@ -9,12 +9,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class Login extends JFrame{
-    JButton login, signUp, clear, showPassword, forgotPassword, exit, adminLogin;
+    JButton login, signUp, clear, forgotPassword, exit;
     JTextField accountNoTextField;
     JPasswordField pinNoTextField;
+    JToggleButton showPassword;
 
     Login(){
-        setTitle("AMAR BANK");
+        setTitle("Login Page");
 
         setLayout(null);
 
@@ -96,7 +97,7 @@ public class Login extends JFrame{
         clear.addActionListener(this::performAction);
         add(clear);
 
-        showPassword = new JButton("Show Password");
+        showPassword = new JToggleButton("Show Password");
         showPassword.setBackground(Color.GREEN);
         showPassword.setForeground(Color.BLACK);
         showPassword.setBounds(460, 200, 150, 30);
@@ -175,7 +176,11 @@ public class Login extends JFrame{
             accountNoTextField.setText("");
             pinNoTextField.setText("");
         } else if ( ae.getSource() == showPassword){
-            pinNoTextField.setEchoChar((char) 0);
+            if (showPassword.isSelected()){
+                pinNoTextField.setEchoChar((char)0);
+            } else {
+                pinNoTextField.setEchoChar('*');
+            }
         } else if ( ae.getSource() == forgotPassword){
             new Forgot_Password().setVisible(true);
             setVisible(false);

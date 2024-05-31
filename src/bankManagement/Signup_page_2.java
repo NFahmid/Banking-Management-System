@@ -19,6 +19,8 @@ public class Signup_page_2 extends GUI_Interface{
     Signup_page_2(int accountNumber){
         this.accountNumber = accountNumber;
 
+        setTitle("Signup Page 2/3");
+
          form = new JLabel("Page 2");
         form.setFont(new Font("Monospaced", Font.BOLD, 38));
         form.setForeground(Color.BLUE);
@@ -31,7 +33,7 @@ public class Signup_page_2 extends GUI_Interface{
         accountType.setBounds(100, 80, 200, 30);
         add(accountType);
 
-         accountTypeCombo = new JComboBox(new String[]{"Savings", "Current", "Fixed Deposit", "Recurring Deposit"});
+         accountTypeCombo = new JComboBox(new String[]{"Savings", "Current", "Fixed Deposit"});
         accountTypeCombo.setBounds(550, 80, 200, 30);
         add(accountTypeCombo);
 
@@ -43,6 +45,13 @@ public class Signup_page_2 extends GUI_Interface{
 
          contactNumberText = new JTextField();
         contactNumberText.setBounds(550, 130, 200, 30);
+        contactNumberText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    incomeText.requestFocus();
+                }
+            }
+        });
         add(contactNumberText);
 
          Income = new JLabel("INCOME");
@@ -53,6 +62,15 @@ public class Signup_page_2 extends GUI_Interface{
 
          incomeText = new JTextField();
         incomeText.setBounds(550, 180, 200, 30);
+        incomeText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    occupationCombo.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    contactNumberText.requestFocus();
+                    }
+            }
+        });
         add(incomeText);
 
         Occupation = new JLabel("Occupation: ");
@@ -63,6 +81,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         occupationCombo = new JComboBox(new String[]{"Student", "Business", "Service", "Retired", "Others"});
         occupationCombo.setBounds(550, 230, 200, 30);
+        occupationCombo.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    educationCombo.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    incomeText.requestFocus();
+                }
+            }
+        });
         add(occupationCombo);
 
         education = new JLabel("Education: ");
@@ -73,6 +100,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         educationCombo = new JComboBox(new String[]{"Primary", "Secondary", "Higher Secondary", "Graduate", "Post Graduate", "Others"});
         educationCombo.setBounds(550, 280, 200, 30);
+        educationCombo.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    NIDText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                    occupationCombo.requestFocus();
+                }
+            }
+        });
         add(educationCombo);
 
         NID = new JLabel("NID number: ");
@@ -83,6 +119,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         NIDText = new JTextField();
         NIDText.setBounds(550, 330, 200, 30);
+        NIDText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    nomineeNameText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    educationCombo.requestFocus();
+                }
+            }
+        });
         add(NIDText);
 
         existingAccount = new JLabel("Do you have an existing account?");
@@ -115,6 +160,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         nomineeNameText = new JTextField();
         nomineeNameText.setBounds(550, 430, 200, 30);
+        nomineeNameText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    nomineeRelationText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    NIDText.requestFocus();
+                }
+            }
+        });
         add(nomineeNameText);
 
         nomineeRelation = new JLabel("Nominee Relation: ");
@@ -125,6 +179,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         nomineeRelationText = new JTextField();
         nomineeRelationText.setBounds(550, 480, 200, 30);
+        nomineeRelationText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    nomineeAgeText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    nomineeNameText.requestFocus();
+                }
+            }
+        });
         add(nomineeRelationText);
 
         nomineeAge = new JLabel("Nominee Age: ");
@@ -135,6 +198,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         nomineeAgeText = new JTextField();
         nomineeAgeText.setBounds(550, 530, 200, 30);
+        nomineeAgeText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    nomineeAddressText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    nomineeRelationText.requestFocus();
+                }
+            }
+        });
         add(nomineeAgeText);
 
         nomineeAddress = new JLabel("Nominee Address: ");
@@ -145,6 +217,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         nomineeAddressText = new JTextField();
         nomineeAddressText.setBounds(550, 580, 200, 30);
+        nomineeAddressText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    nomineeContactText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    nomineeAgeText.requestFocus();
+                }
+            }
+        });
         add(nomineeAddressText);
 
         nomineeContact = new JLabel("Nominee Contact: ");
@@ -155,6 +236,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         nomineeContactText = new JTextField();
         nomineeContactText.setBounds(550, 630, 200, 30);
+        nomineeContactText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                    nomineeNIDText.requestFocus();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    nomineeAddressText.requestFocus();
+                }
+            }
+        });
         add(nomineeContactText);
 
         nomineeNID = new JLabel("Nominee NID/ Passport number:");
@@ -165,6 +255,15 @@ public class Signup_page_2 extends GUI_Interface{
 
         nomineeNIDText = new JTextField();
         nomineeNIDText.setBounds(550, 680, 200, 30);
+        nomineeNIDText.addKeyListener(new KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    next.doClick();
+                } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                    nomineeContactText.requestFocus();
+                }
+            }
+        });
         add(nomineeNIDText);
 
         addKeyListener(new KeyAdapter() {
