@@ -9,10 +9,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 public class Login extends JFrame{
-    JButton login, signUp, clear, forgotPassword, exit;
-    JTextField accountNoTextField;
-    JPasswordField pinNoTextField;
-    JToggleButton showPassword;
+    private JButton login, signUp, clear, forgotPassword, exit;
+    private JTextField accountNoTextField;
+    private JPasswordField pinNoTextField;
+    private JToggleButton showPassword;
 
     Login(){
         setTitle("Login Page");

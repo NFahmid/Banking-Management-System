@@ -206,7 +206,7 @@ public class PayBill extends GUI_Interface_2 {
         }
     }
 
-    public void updateBalance(String accountNumber, String pinNumber, double balance) {
+    private void updateBalance(String accountNumber, String pinNumber, double balance) {
         try {
             File inputFile = new File("src/bankManagement/Signup.txt");
             File tempFile = new File("src/bankManagement/SignupTemp.txt");
@@ -246,7 +246,7 @@ public class PayBill extends GUI_Interface_2 {
         }
     }
 
-    public void updateTransactionHistory(String accountNumber, double amount, double balance, String status){
+    private void updateTransactionHistory(String accountNumber, double amount, double balance, String status){
         String accountNumber1 = accountNumber;
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumber1 + ".txt", true));

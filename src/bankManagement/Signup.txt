@@ -57,7 +57,7 @@ Nominee Contact: 01714289081
 Nominee NID: 0987654321
 Account Number: 1111170515
 Pin Number: 0201
-Balance: 5937.0
+Balance: 6004.75
 Loan: 0.0
 Services: ATM Card, Internet Banking, Mobile Banking, 
 --------------------------------------------------
