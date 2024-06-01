@@ -16,6 +16,8 @@ public class View_Profile extends GUI_Interface_2{
         this.accountNumberText = accountNumber;
         this.pinNUmber = pinNumber;
 
+        setTitle("View Profile");
+
         setLayout(new GridLayout(0, 1));
 
         try {

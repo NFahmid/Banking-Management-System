@@ -20,6 +20,8 @@ public class Transfer_Cash extends GUI_Interface_2{
         this.accountNumberText = accountNumber;
         this.pinNumber = pinNumber;
 
+        setTitle("Transfer Cash");
+
         setLayout(null);
 
         JLabel form = new JLabel("TRANSFER CASH");

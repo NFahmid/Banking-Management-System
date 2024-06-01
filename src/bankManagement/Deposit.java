@@ -20,6 +20,8 @@ public class Deposit extends GUI_Interface_2 {
         this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
 
+        setTitle("Deposit");
+
         depositAmount = new JLabel("Enter the amount you want to deposit:");
         depositAmount.setFont(new Font("Raleway", Font.BOLD, 22));
         depositAmount.setForeground(Color.BLACK);

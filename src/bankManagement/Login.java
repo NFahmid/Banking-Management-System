@@ -4,9 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 
 public class Login extends JFrame{
     private JButton login, signUp, clear, forgotPassword, exit;
@@ -160,12 +158,19 @@ public class Login extends JFrame{
                 }
 
                 reader.close();
-            }  catch (Exception e){
+            }  catch (IOException e){
+                e.printStackTrace();
+            } catch (NullPointerException e){
+                JOptionPane.showMessageDialog(null, "Invalid account number or pin");
+                e.printStackTrace();
+            } catch (Exception e){
                 e.printStackTrace();
             }
         } else if ( ae.getSource() == signUp){
             try {
                 FileWriter fileWriter = new FileWriter("src/bankManagement/Signup.txt", true);
+            } catch (IOException e){
+                e.printStackTrace();
             } catch (Exception e){
                 e.printStackTrace();
             }

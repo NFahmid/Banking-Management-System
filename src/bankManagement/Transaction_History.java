@@ -16,6 +16,8 @@ public class Transaction_History extends JFrame {
         this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
 
+        setTitle("Transaction History");
+
         setLayout(new BorderLayout());
 
         JTextArea transaction= new JTextArea();

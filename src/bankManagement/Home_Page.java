@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.util.*;
 
 public class Home_Page extends JFrame {
+
     JButton deposit, withdraw, transfer, pinChange, transactionHistory, viewProfile, logout, deleteAccount, loan, payBill;
     private String pinNumber, accountNumber, balance, name;
 
@@ -31,6 +32,8 @@ public class Home_Page extends JFrame {
     Home_Page(String accountNumber, String pinNumber){
         this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
+
+        setTitle("Home Page");
 
         try{
 

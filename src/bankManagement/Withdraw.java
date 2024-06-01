@@ -20,6 +20,7 @@ JLabel withdrawAmount;
         this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
 
+        setTitle("Withdraw");
 
         withdrawAmount = new JLabel("Enter the amount you want to withdraw:");
         withdrawAmount.setFont(new Font("Raleway", Font.BOLD, 22));
