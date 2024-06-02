@@ -6,13 +6,13 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.*;
 
-public class Login extends JFrame{
+public class Main extends JFrame{
     private JButton login, signUp, clear, forgotPassword, exit;
     private JTextField accountNoTextField;
     private JPasswordField pinNoTextField;
     private JToggleButton showPassword;
 
-    Login(){
+    Main(){
         setTitle("Login Page");
 
         setLayout(null);
@@ -197,6 +197,6 @@ public class Login extends JFrame{
 
 
     public static void main(String[] args) {
-        new Login();
+        new Main();
     }
 }

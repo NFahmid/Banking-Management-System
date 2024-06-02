@@ -127,7 +127,7 @@ public class Forgot_Password extends JFrame{
                             } else if (data[0].equals("Pin Number") && currentAccountNumber.equals(accountNumber) && currentEmail.equals(email)) {
                                 line = "Pin Number: " + newPassword;
                                 JOptionPane.showMessageDialog(null, "Password changed successfully");
-                                new Login().setVisible(true);
+                                new Main().setVisible(true);
                                 setVisible(false);
                             }
                             writer.write(line + System.lineSeparator());
@@ -151,7 +151,7 @@ public class Forgot_Password extends JFrame{
                 ex.printStackTrace();
             }
         } else if (e.getSource() == back) {
-            new Login().setVisible(true);
+            new Main().setVisible(true);
             setVisible(false);
         }
     }

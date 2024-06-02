@@ -317,7 +317,7 @@ public class Signup extends GUI_Interface {
                 }
             }
         } else if (ae.getActionCommand().equals("Back")){
-            new Login();
+            new Main();
             setVisible(false);
         }
     }

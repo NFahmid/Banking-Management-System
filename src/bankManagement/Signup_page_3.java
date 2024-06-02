@@ -253,7 +253,7 @@ public class Signup_page_3 extends GUI_Interface{
 
                         JOptionPane.showMessageDialog(null, "Account created successfully");
                         setVisible(false);
-                        new Login();
+                        new Main();
                     } else if (ae.getActionCommand().equals("Back")) {
                         setVisible(false);
                         revalidate();

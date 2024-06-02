@@ -17,7 +17,7 @@ public class ButtonActionHandler implements ActionListener {
     @Override
     public void actionPerformed(java.awt.event.ActionEvent ae) {
         if(ae.getSource() == homePage.logout){
-            new Login().setVisible(true);
+            new Main().setVisible(true);
             homePage.dispose();
         } else if (ae.getSource() == homePage.pinChange) {
             String currentPin = JOptionPane.showInputDialog("Enter your current pin");
@@ -48,7 +48,7 @@ public class ButtonActionHandler implements ActionListener {
             int response = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete your account? This action cannot be undone", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if(response == JOptionPane.YES_OPTION) {
                 new Delete_Account(homePage.getAccountNumber());
-                new Login().setVisible(true);
+                new Main().setVisible(true);
                 homePage.dispose();
             }
         } else if (ae.getSource() == homePage.loan){
