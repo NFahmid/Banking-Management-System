@@ -9,14 +9,14 @@ import java.time.format.DateTimeFormatter;
 
 public class PayBill extends GUI_Interface_2 {
     String accountNumber, pinNumber;
-    double balance;
+    double balance1;
     JButton utility, creditCard, mobileTopUp, insaurance, ISP, back;
     JLabel title;
     PayBill(String accountNumber, String pinNumber){
         this.accountNumber = accountNumber;
         this.pinNumber = pinNumber;
 
-        getCurrentBalance(accountNumber, pinNumber);
+        balance1 = Double.parseDouble(getCurrentBalance(accountNumber, pinNumber));
 
         setTitle("Bill Payment");
 
@@ -75,6 +75,8 @@ public class PayBill extends GUI_Interface_2 {
     }
 
     public void performAction(ActionEvent ae){
+        String balance = String.valueOf(balance1);
+
         if (ae.getSource() == utility){
             String type = JOptionPane.showInputDialog("Enter the type of utility bill you want to pay: \n Water, Gas, Electricity or Cable.");
             if (type == null){
@@ -91,12 +93,12 @@ public class PayBill extends GUI_Interface_2 {
             }
 
             double amount1 = Double.parseDouble(amount);
-            if (amount1 > balance){
+            if (amount1 > balance1){
                 JOptionPane.showMessageDialog(null, "Insufficient balance");
             } else {
-                balance -= amount1;
+                balance1 -= amount1;
                 updateBalance(accountNumber, pinNumber, balance);
-                updateTransactionHistory(accountNumber, amount1, balance, "Utility Bill paid for " + type + " to account number: " + accNumber);
+                updateTransactionHistory(accountNumber, amount1, balance1, "Utility Bill paid for " + type + " to account number: " + accNumber);
                 JOptionPane.showMessageDialog(null, "Bill paid successfully");
             }
         } else if (ae.getSource() == creditCard){
@@ -115,12 +117,12 @@ public class PayBill extends GUI_Interface_2 {
             }
 
             double amount1 = Double.parseDouble(amount);
-            if (amount1 > balance){
+            if (amount1 > balance1){
                 JOptionPane.showMessageDialog(null, "Insufficient balance");
             } else {
-                balance -= amount1;
+                balance1 -= amount1;
                 updateBalance(accountNumber, pinNumber, balance);
-                updateTransactionHistory(accountNumber, amount1, balance, "Credit Card Bill paid for card number: " + cardNumber);
+                updateTransactionHistory(accountNumber, amount1, balance1, "Credit Card Bill paid for card number: " + cardNumber);
                 JOptionPane.showMessageDialog(null, "Bill paid successfully");
             }
         } else if (ae.getSource() == mobileTopUp){
@@ -139,12 +141,12 @@ public class PayBill extends GUI_Interface_2 {
             }
 
             double amount1 = Double.parseDouble(amount);
-            if (amount1 > balance){
+            if (amount1 > balance1){
                 JOptionPane.showMessageDialog(null, "Insufficient balance");
             } else {
-                balance -= amount1;
+                balance1 -= amount1;
                 updateBalance(accountNumber, pinNumber, balance);
-                updateTransactionHistory(accountNumber, amount1, balance, "Mobile Top Up to phone number: " + phoneNumber);
+                updateTransactionHistory(accountNumber, amount1, balance1, "Mobile Top Up to phone number: " + phoneNumber);
                 JOptionPane.showMessageDialog(null, "Bill paid successfully");
             }
         } else if (ae.getSource() == insaurance){
@@ -163,12 +165,12 @@ public class PayBill extends GUI_Interface_2 {
             }
 
             double amount1 = Double.parseDouble(amount);
-            if (amount1 > balance){
+            if (amount1 > balance1){
                 JOptionPane.showMessageDialog(null, "Insufficient balance");
             } else {
-                balance -= amount1;
+                balance1 -= amount1;
                 updateBalance(accountNumber, pinNumber, balance);
-                updateTransactionHistory(accountNumber, amount1, balance, "Insurance Bill paid to policy number: " + policyNumber );
+                updateTransactionHistory(accountNumber, amount1, balance1, "Insurance Bill paid to policy number: " + policyNumber );
                 JOptionPane.showMessageDialog(null, "Bill paid successfully");
             }
         } else if (ae.getSource() == ISP){
@@ -192,12 +194,12 @@ public class PayBill extends GUI_Interface_2 {
             }
 
             double amount1 = Double.parseDouble(amount);
-            if (amount1 > balance){
+            if (amount1 > balance1){
                 JOptionPane.showMessageDialog(null, "Insufficient balance");
             } else {
-                balance -= amount1;
+                balance1 -= amount1;
                 updateBalance(accountNumber, pinNumber, balance);
-                updateTransactionHistory(accountNumber, amount1, balance, "ISP Bill paid to ISP: " + ISPname + " ISP_ID: " + ISP_ID);
+                updateTransactionHistory(accountNumber, amount1, balance1, "ISP Bill paid to ISP: " + ISPname + " ISP_ID: " + ISP_ID);
                 JOptionPane.showMessageDialog(null, "Bill paid successfully");
             }
         } else if (ae.getSource() == back){
@@ -206,47 +208,7 @@ public class PayBill extends GUI_Interface_2 {
         }
     }
 
-    private void updateBalance(String accountNumber, String pinNumber, double balance) {
-        try {
-            File inputFile = new File("src/bankManagement/Signup.txt");
-            File tempFile = new File("src/bankManagement/SignupTemp.txt");
-
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-            String line;
-            String currentAccountNumber = null;
-            String currentPin = null;
-
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(": ");
-                if (parts[0].equals("Account Number")) {
-                    currentAccountNumber = parts[1];
-                } else if (parts[0].equals("Pin Number")) {
-                    currentPin = parts[1];
-                } else if (parts[0].equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
-                    line = "Balance: " + balance;
-                }
-                writer.write(line + System.lineSeparator());
-            }
-
-            reader.close();
-            writer.close();
-
-            if (!inputFile.delete()) {
-                JOptionPane.showMessageDialog(null, "Could not delete original file");
-                return;
-            }
-
-            if (!tempFile.renameTo(inputFile)) {
-                JOptionPane.showMessageDialog(null, "Could not rename temporary file");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void updateTransactionHistory(String accountNumber, double amount, double balance, String status){
+    public void updateTransactionHistory(String accountNumber, double amount, double balance, String status){
         String accountNumber1 = accountNumber;
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("src/accountManager/" + accountNumber1 + ".txt", true));

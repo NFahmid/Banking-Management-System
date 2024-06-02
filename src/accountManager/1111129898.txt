@@ -1,0 +1,10 @@
+Account Number: 1111129898 created on 02-06-2024 12:05:11
+Case 	 Amount 	 Time 	 	 	 	 	 	 	 Balance 	 Description
+Initial deposit: 	Tk 5000 	02-06-2024 12:05:11 	Tk 5000 	Initial deposit
+Deposit: 	Tk 5000	2024-06-02 12:05:38	10000.0	Deposit to own account
+Withdraw: 	Tk 4560	2024/06/02 12:05:46	5440.0	Withdraw from own account
+Transferred: 	Tk600	2024-06-02 12:06:37	4840.0	Transferred to 1111170515
+Deposit: 	Tk 600	2024-06-02 12:07:55	5440.0	Deposit to own account
+Loan: 	Tk 500.0	2024-06-02 12:08:06	5940.0	Loan taken
+Loan: 	Tk 500.0	2024-06-02 12:09:21	5940.0	Loan taken
+Loan: 	Tk 525.0	2024-06-02 12:09:34	5415.0	Loan repaid

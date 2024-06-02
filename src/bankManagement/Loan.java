@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Loan extends GUI_Interface_2 {
     String accountNumber, pinNumber;
@@ -106,7 +108,7 @@ public class Loan extends GUI_Interface_2 {
 
                 updateLoanBalance(accountNumber, pinNumber, loanBalance, balance + loanAmount1);
 
-                JOptionPane.showMessageDialog(null, "Loan of " + loanAmount  + " with an interest of 5% and have to repay " + (loanBalance + loanAmount1) + " on " + date);
+                JOptionPane.showMessageDialog(null, "You have taken a loan of " + loanAmount  + " with an interest of 5% and have to repay " + loanBalance );
 
                 updateTransactionHistory(accountNumber, loanAmount1, balance + loanAmount1, "Loan taken");
 
@@ -151,45 +153,45 @@ public class Loan extends GUI_Interface_2 {
     }
 
     public void updateLoanBalance(String accountNumber, String pinNumber, double loanBalance, double balance) {
-        try {
-            File inputFile = new File("src/bankManagement/Signup.txt");
-            File tempFile = new File("src/bankManagement/SignupTemp.txt");
+            File signupFile = new File("src/bankManagement/Signup.txt");
 
-            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+            try {
+                List<String> lines = new ArrayList<>();
+                BufferedReader reader = new BufferedReader(new FileReader(signupFile));
 
-            String line;
-            String currentAccountNumber = null;
-            String currentPin = null;
+                String currentLine;
+                String currentAccountNumber = null;
+                String currentPinNumber = null;
 
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(": ");
-                if (parts[0].equals("Account Number")) {
-                    currentAccountNumber = parts[1];
-                } else if (parts[0].equals("Pin Number")) {
-                    currentPin = parts[1];
-                } else if (parts[0].equals("Loan") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
-                    line = "Loan: " + loanBalance;
-                } else if (parts[0].equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPin.equals(pinNumber)) {
-                    line = "Balance: " + balance;
+                while ((currentLine = reader.readLine()) != null) {
+                    String[] parts = currentLine.split(": ");
+                    if (parts.length >= 2) {
+                        String key = parts[0];
+                        String value = parts[1];
+
+                        if (key.equals("Account Number")) {
+                            currentAccountNumber = value;
+                        } else if (key.equals("Pin Number")) {
+                            currentPinNumber = value;
+                        } else if (key.equals("Balance") && currentAccountNumber.equals(accountNumber) && currentPinNumber.equals(pinNumber)) {
+                            currentLine = "Balance: " + balance;
+                        } else if (key.equals("Loan") && currentAccountNumber.equals(accountNumber) && currentPinNumber.equals(pinNumber)) {
+                            currentLine = "Loan: " + loanBalance;
+                        }
+                    }
+                    lines.add(currentLine);
                 }
-                writer.write(line + System.lineSeparator());
-            }
+                reader.close();
 
-            reader.close();
-            writer.close();
+                BufferedWriter writer = new BufferedWriter(new FileWriter(signupFile));
+                for (String line : lines) {
+                    writer.write(line + System.getProperty("line.separator"));
+                }
+                writer.close();
 
-            if (!inputFile.delete()) {
-                JOptionPane.showMessageDialog(null, "Could not delete original file");
-                return;
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
-            if (!tempFile.renameTo(inputFile)) {
-                JOptionPane.showMessageDialog(null, "Could not rename temporary file");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void updateTransactionHistory(String accountNumber, double loanBalance, double balance, String status){

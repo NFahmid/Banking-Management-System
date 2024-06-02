@@ -5,13 +5,13 @@ It is a simple banking management system that we build for our OOP Project. It o
 
 
 ## Objective
-- To create a user friendly and simple banking management system where the user can perform all his basic needs from a banking app easily.
+- To create a user-friendly and simple banking management system where the user can perform all his basic needs from a banking app easily.
 - To demonstrate the concepts of OOP with a real life example.
 
 ## Requirements to run
 - Operating system: Windows/ Linux/ Mac
 - Language: Java
-- IDE: Intellij (preffered)
+- IDE: Intellij (preferred)
 
 ## How to run
 Open the Main Class from the src folder in your IDE.
