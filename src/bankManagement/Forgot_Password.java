@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Forgot_Password extends JFrame{
     JLabel form, accountNumber, email, newPassword, confirmPassword;
@@ -107,41 +109,53 @@ public class Forgot_Password extends JFrame{
             try {
                 if (accountNumber.equals("") || email.equals("") || newPassword.equals("") || confirmPassword.equals("")) {
                     JOptionPane.showMessageDialog(null, "Fill all the required fields");
+                } else if (newPassword.length() < 4) {
+                    JOptionPane.showMessageDialog(null, "Password must be at least 4 characters long");
+                } else if (confirmPassword.length() < 4) {
+                    JOptionPane.showMessageDialog(null, "Password must be at least 4 characters long");
+                } else if (!newPassword.equals(confirmPassword)) {
+                    JOptionPane.showMessageDialog(null, "Password does not match");
                 } else {
                     if (newPassword.equals(confirmPassword)) {
-                        File inputFile = new File("src/bankManagement/Signup.txt");
-                        File tempFile = new File("src/bankManagement/temp.txt");
+                        File signupFile = new File("src/bankManagement/Signup.txt");
 
-                        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-                        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+                        try {
+                            List<String> lines = new ArrayList<>();
+                            BufferedReader reader = new BufferedReader(new FileReader(signupFile));
 
-                        String line;
-                        String currentAccountNumber = null;
-                        String currentEmail = null;
-                        while ((line = reader.readLine()) != null) {
-                            String[] data = line.split(": ");
-                            if (data[0].equals("Account Number")) {
-                                currentAccountNumber = data[1];
-                            } else if (data[0].equals("Email")) {
-                                currentEmail = data[1];
-                            } else if (data[0].equals("Pin Number") && currentAccountNumber.equals(accountNumber) && currentEmail.equals(email)) {
-                                line = "Pin Number: " + newPassword;
-                                JOptionPane.showMessageDialog(null, "Password changed successfully");
-                                new Main().setVisible(true);
-                                setVisible(false);
+                            String currentLine;
+                            String currentAccountNumber = null;
+
+                            while ((currentLine = reader.readLine()) != null) {
+                                String[] parts = currentLine.split(": ");
+                                if (parts.length >= 2) {
+                                    String key = parts[0];
+                                    String value = parts[1];
+
+                                    if (key.equals("Account Number")) {
+                                        currentAccountNumber = value;
+                                    } else if (key.equals("Email")) {
+                                        email = value;
+                                    }
+                                    else if (key.equals("Pin Number") && currentAccountNumber.equals(accountNumber) && email.equals(email)) {
+                                        currentLine = "Pin Number: " + newPassword;
+                                    }
+                                }
+                                lines.add(currentLine);
                             }
-                            writer.write(line + System.lineSeparator());
-                        }
-                        reader.close();
-                        writer.close();
+                            reader.close();
 
-                        if (!inputFile.delete()) {
-                            JOptionPane.showMessageDialog(null, "Could not delete original file");
-                            return;
-                        }
+                            BufferedWriter writer = new BufferedWriter(new FileWriter(signupFile));
+                            for (String line : lines) {
+                                writer.write(line + System.getProperty("line.separator"));
+                            }
+                            writer.close();
 
-                        if (!tempFile.renameTo(inputFile)) {
-                            JOptionPane.showMessageDialog(null, "Could not rename temporary file");
+                            JOptionPane.showMessageDialog(null, "Password changed successfully");
+                            new Main().setVisible(true);
+                            setVisible(false);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Password does not match");
@@ -150,6 +164,8 @@ public class Forgot_Password extends JFrame{
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+
+
         } else if (e.getSource() == back) {
             new Main().setVisible(true);
             setVisible(false);

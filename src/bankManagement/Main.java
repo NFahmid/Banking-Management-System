@@ -17,14 +17,14 @@ public class Main extends JFrame{
 
         setLayout(null);
 
-        ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("icons/logo2.jpg"));
+        ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("icons/logo2.png"));
         Image image = icon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon icon1 = new ImageIcon(image);
         JLabel label = new JLabel(icon1);
         label.setBounds(70, 10, 100, 100);
         add(label);
 
-        JLabel title = new JLabel("WELCOME TO AMAR BANK");
+        JLabel title = new JLabel("WELCOME TO CIPHER BANK");
         title.setFont(new Font("Monospaced", Font.BOLD, 38));
         title.setForeground(Color.BLUE);
         title.setBounds(200, 20, 600, 50);

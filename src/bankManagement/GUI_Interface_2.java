@@ -46,7 +46,6 @@ public abstract class GUI_Interface_2 extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

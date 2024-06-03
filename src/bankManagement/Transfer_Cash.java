@@ -4,9 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -86,6 +84,10 @@ public class Transfer_Cash extends GUI_Interface_2{
             String transferAccountNumber = transferaccountNumberText.getText();
             if (amount.equals("") || transferAccountNumber.equals("")) {
                 JOptionPane.showMessageDialog(null, "Please enter the amount and account number");
+            } else if (transferAccountNumber.equals(accountNumberText)){
+                JOptionPane.showMessageDialog(null, "You cannot transfer to your own account");
+            } else if (!accountFinder(transferAccountNumber)) {
+                JOptionPane.showMessageDialog(null, "Account number not found");
             } else {
                 String currentBalance = getCurrentBalance(accountNumberText, pinNumber);
                 if (currentBalance == null) {
@@ -140,6 +142,39 @@ public class Transfer_Cash extends GUI_Interface_2{
             this.setVisible(false);
             new Home_Page(accountNumberText, pinNumber).setVisible(true);
         }
+    }
+
+    public boolean accountFinder(String accountNumber){
+        File signupFile = new File("src/bankManagement/Signup.txt");
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(signupFile));
+
+            String currentLine;
+            String currentAccountNumber = null;
+            String currentPinNumber = null;
+
+            while((currentLine = reader.readLine()) != null) {
+                String[] parts = currentLine.split(": ");
+                if (parts.length >= 2) {
+                    String key = parts[0];
+                    String value = parts[1];
+
+                    if (key.equals("Account Number")) {
+                        currentAccountNumber = value;
+                    }
+
+                    if (currentAccountNumber.equals(accountNumber)) {
+                        return true;
+                    }
+                }
+            }
+            reader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public static void main(String[] args) {

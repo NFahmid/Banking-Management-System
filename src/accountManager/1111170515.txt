@@ -36,3 +36,6 @@ Loan: 	Tk 5000.0	2024-06-02 19:50:00	68549.75	Loan taken
 Loan: 	Tk 5250.0	2024-06-02 19:50:26	63299.75	Loan repaid
 Loan: 	Tk 200.0	2024-06-02 19:52:23	63499.75	Loan taken
 Loan: 	Tk 210.0	2024-06-02 19:52:39	63289.75	Loan repaid
+Transferred: 	Tk10000	2024-06-03 10:48:39	53289.75	Transferred to 1111170515
+Received: 	Tk10000	2024-06-03 10:48:39	63289.75	Received from 1111170515
+Transferred: 	Tk1000	2024-06-03 10:54:20	62289.75	Transferred to 1111105072

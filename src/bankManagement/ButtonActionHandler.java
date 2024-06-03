@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ButtonActionHandler implements ActionListener {
     private Home_Page homePage;
@@ -20,13 +22,21 @@ public class ButtonActionHandler implements ActionListener {
             new Main().setVisible(true);
             homePage.dispose();
         } else if (ae.getSource() == homePage.pinChange) {
+            String accountNumber = homePage.getAccountNumber();
             String currentPin = JOptionPane.showInputDialog("Enter your current pin");
             if (!currentPin.equals(this.homePage.getPinNumber())) {
                 JOptionPane.showMessageDialog(null, "Entered current pin does not match with the pin of the logged-in user");
                 return;
+            } else if (currentPin == null) {
+                return;
             }
             String newPin = JOptionPane.showInputDialog("Enter your new pin");
-            changePin(currentPin, newPin);
+            String confirmNewPin = JOptionPane.showInputDialog("Confirm your new pin");
+            if (!newPin.equals(confirmNewPin)) {
+                JOptionPane.showMessageDialog(null, "New pin and confirm new pin does not match");
+                return;
+            }
+            changePin(accountNumber, currentPin, newPin);
 
             JOptionPane.showMessageDialog(null, "Pin changed successfully");
         } else if (ae.getSource() == homePage.deposit){
@@ -60,33 +70,38 @@ public class ButtonActionHandler implements ActionListener {
         }
     }
 
-    public void changePin(String currentPin, String newPin) {
+    public void changePin(String accountNumber, String currentPin, String newPin) {
         File signupFile = new File("src/bankManagement/Signup.txt");
-        File tempFile = new File("src/bankManagement/Temp.txt");
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("src/bankManagement/Signup.txt"));
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/bankManagement/Temp.txt"));
+            List<String> lines = new ArrayList<>();
+            BufferedReader reader = new BufferedReader(new FileReader(signupFile));
 
             String currentLine;
+            String currentAccountNumber = null;
+            String currentPinNumber = null;
 
             while((currentLine = reader.readLine()) != null) {
-                if(currentLine.contains("Pin Number: " + currentPin)) {
-                    currentLine = "Pin Number: " + newPin;
+                String[] parts = currentLine.split(": ");
+                if (parts.length >= 2) {
+                    String key = parts[0];
+                    String value = parts[1];
+
+                    if (key.equals("Account Number")) {
+                        currentAccountNumber = value;
+                    } else if (key.equals("Pin Number")  && currentAccountNumber.equals(accountNumber) && value.equals(currentPin)) {
+                        currentLine = "Pin Number: " + newPin;
+                    }
                 }
-                writer.write(currentLine + System.getProperty("line.separator"));
+                lines.add(currentLine);
             }
-            writer.close();
             reader.close();
 
-            try {
-                Files.delete(signupFile.toPath());
-            } catch (Exception e) {
-                e.printStackTrace();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(signupFile));
+            for (String line : lines) {
+                writer.write(line + System.getProperty("line.separator"));
             }
-
-            if (!tempFile.renameTo(signupFile))
-                System.out.println("Could not rename file");
+            writer.close();
 
         } catch (IOException e) {
             e.printStackTrace();

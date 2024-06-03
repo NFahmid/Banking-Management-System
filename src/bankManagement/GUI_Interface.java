@@ -15,5 +15,5 @@ public abstract class GUI_Interface extends JFrame {
     }
 
     public abstract void performAction(java.awt.event.ActionEvent ae);
-    
+
 }

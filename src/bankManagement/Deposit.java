@@ -97,6 +97,9 @@ public class Deposit extends GUI_Interface_2 {
                         JOptionPane.showMessageDialog(null, "Invalid number format");
                     } catch (IOException e) {
                         e.printStackTrace();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "An error occured.");
+                        e.printStackTrace();
                     }
                 }
             }
